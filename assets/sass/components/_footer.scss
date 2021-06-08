@@ -1,0 +1,10 @@
+footer {
+    background-color: #272727;
+    color: $white;
+    padding: 35px;
+    
+    ul {
+        display: flex;
+        justify-content: space-around;
+    }
+}

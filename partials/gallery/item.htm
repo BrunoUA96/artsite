@@ -1,0 +1,20 @@
+<div class="col-md-6 col-lg-4 mb-4">
+    <div class="card_item text-center">
+        <div class="card_item_img_box img_box_scale">
+            <img class="card_item_img" src="{{ product.attachments[0].path }}" alt="{{ product.title }}">
+        </div>
+        <div class="card_item_text_content">
+            <h3 class="card_item_title mt-4">
+                {{ product.title }}
+            </h3>
+            <span class="card_item_desc">
+                {{ product.description|raw }}
+            </span>
+            <div class="card_item_btn_box">
+                <a class="card_item_btn" href="{{'painting'|page({id: product.id})}}">
+                    {{'View more'|_}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

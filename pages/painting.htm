@@ -1,0 +1,93 @@
+title = "Painting"
+url = "/painting/:id"
+layout = "default"
+
+[slideshows]
+sstheme = "artsite"
+
+[catalog]
+id = "{{:id}}"
+==
+
+{% partial 'general/banner' %}
+
+<div class="container mt-5 painting">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="img_box">
+                <img src="{{ product.attachments.0.path }}" alt="{{product.title}}">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="painting_text_content">
+                <h2 class="painting_title">
+                    {{ product.title }}
+                </h2>
+
+                <p class="paintind_text_desc">
+                    {{ product.description|raw }}
+                </p>
+                
+                <div class="slideshow_btn g-btn">
+                    <span>
+                        {{'Show Paintings'|_}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slideshow popup -->
+<div class="gallery_slideshow">
+    <span class="slideshow_btn gallery_slideshow--btn">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </span>
+    <div class="gallery_slideshow_box">
+        <div class="gallery_slideshow_box_content">
+            {% for image in product.attachments %} 
+            <div class="gallery_slideshow_box_content_item">
+                <img src="{{ image.getPath }}" alt="{{product.title}}" />
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+  
+
+
+{% put scripts %}
+    <script>
+        $('.gallery_slideshow_box_content').slick({
+            dots: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
+        });
+
+        if (document.querySelector('.slick-prev')) {
+            document.querySelector('.slick-prev').innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
+            document.querySelector('.slick-next').innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
+        }
+
+        document.querySelectorAll('.slideshow_btn').forEach(element => {
+            element.addEventListener('click', () => {
+                document.querySelector('.gallery_slideshow').classList.toggle('gallery_slideshow--show');
+
+                if (document.querySelector('.gallery_slideshow').classList.contains('gallery_slideshow--show')) {
+                    document.querySelector('.gallery_slideshow').classList.remove('zoomOutUp');
+                    document.querySelector('.gallery_slideshow').classList.add('zoomInDown');
+                } else {
+                    document.querySelector('.gallery_slideshow').classList.remove('zoomInDown');
+                    document.querySelector('.gallery_slideshow').classList.add('zoomOutUp');
+                }
+
+                document.querySelector('body').classList.toggle('overflow-body');
+            });
+        });
+        
+    </script>
+{% endput %}

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="{{'home'|page}}">
+        Name Artist
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item  {{this.page.BaseFileName == 'home' ? 'active-item'}} ">
+                <a class="nav-link" href="{{'home'|page}}">
+                    {{'Home'|_}}
+                </a>
+            </li> 
+            <li class="nav-item  {{this.page.BaseFileName == 'gallery' ? 'active-item'}} ">
+                <a class="nav-link" href="{{'gallery'|page}}">
+                    {{'Gallery'|_}}
+                </a>
+            </li> 
+            <li class="nav-item {{this.page.BaseFileName == 'about-artist' ? 'active-item'}}">
+                <a class="nav-link" href="{{'about-artist'|page}}">
+                    {{'About Artist'|_}}
+                </a>
+            </li>
+            <li class="nav-item {{this.page.BaseFileName == 'contacts' ? 'active-item'}}">
+                <a class="nav-link" href="{{'contacts'|page}}">
+                    {{'Contacts'|_}}
+                </a>
+            </li>
+        </ul>
+      
+        <!-- Language -->
+        {% component  'localePicker' %}
+    </div>
+  </nav>

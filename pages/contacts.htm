@@ -1,0 +1,45 @@
+title = "Contacts"
+url = "/contacts"
+layout = "default"
+
+[slideshows]
+sstheme = "artsite"
+==
+
+{% partial 'general/banner' %}
+
+<div class="container">
+    <div class="row">
+        {% partial 'general/title' title = 'Contacts' %}
+
+        <div class="col-md-12 contacts_box">
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="num">Number</label>
+                            <input type="number" class="form-control" id="num" placeholder="Number">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Title Message</label>
+                            <input type="text" class="form-control" id="title" placeholder="Title Message">
+                        </div>
+                        <div class="form-group">
+                            <label for="Message">Message</label>
+                            <textarea class="form-control" id="Message" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn g-btn">Send</button>
+              </form>
+        </div>
+    </div>
+</div>

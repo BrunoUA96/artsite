@@ -1,0 +1,9 @@
+<ul class="navbar-nav nav_lang ml-auto">       
+    {% for code, name in locales %}
+        <li class="nav-item {{ code == activeLocale ? 'active' }}">
+            <a class="nav-link"  data-request="onSwitchLocale" data-request-data="locale: '{{ code }}'" href="#">
+                {{ code }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

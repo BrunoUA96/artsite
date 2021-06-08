@@ -1,0 +1,23 @@
+title = "Gallery"
+url = "/gallery"
+layout = "default"
+
+[slideshows]
+sstheme = "artsite"
+
+[catalog]
+==
+
+{% partial 'general/banner' %}
+
+<div class="container mt-5">
+    <div class="row">
+        {% partial 'general/title' title = 'Gallery' %}
+       
+    </div>
+    <div class="row">
+        {% for product in catalog.getProducts %}
+            {% partial 'gallery/item' product = product %}
+        {% endfor %}
+    </div>
+</div>

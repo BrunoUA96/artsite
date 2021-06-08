@@ -1,0 +1,106 @@
+*, html{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.overflow-body {
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.title {
+    color: $black;
+}
+
+.title_box {
+    text-align: center;
+
+    .title {
+        position: relative;
+        display: inline-block;
+        text-transform: uppercase;
+        display: block;
+        
+        span {
+            display: inline-block;
+            padding: 0 40px;
+            color: $black;
+            background-color: $white;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 100%;
+            max-width: 600px;
+            height: 1px;
+            background-color: $gold;
+            z-index: -1;
+        }
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+section {
+    margin-top: -110px;
+}
+
+.g-btn {
+    display: inline-block;
+    background-color: $gold;
+    color: $white;
+    border: 1px solid $gold;
+    padding: 5px 30px;
+    font-size: 19px;
+    position: relative;
+    transition: all .3s ease-in-out;
+    z-index: 1;
+    border-radius: 0;
+    box-shadow: none !important;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        transition: all .3s ease-in-out;
+    }
+
+    &:hover {
+        span {
+            z-index: 1;
+            color: $gold !important;
+        }
+
+        &::before {
+            width: 100%;
+            background-color: $white;
+            z-index: -1;
+        }
+    }
+}

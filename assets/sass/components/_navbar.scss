@@ -1,0 +1,109 @@
+.navbar {
+    padding: 15px 35px;
+    z-index: 10;
+    background-image: linear-gradient(rgba($gold, .2), transparent);
+
+    @media screen and (max-width: 992px) {
+        background-color: $gold;
+        background-image: none;
+    }
+
+    .navbar-brand {
+        color: $white !important;
+    }
+
+    .navbar-toggler {
+        background-color: $white;
+    }
+
+    &-collapse {
+        margin-left: 50px;
+        
+        @media screen and (max-width: 992px) {
+            margin-left: 0;
+            margin-top: 15px;
+        }
+    }
+}
+
+.nav {
+    &-item {
+        @media screen and (max-width: 992px) {
+            text-align: center;
+        }
+        &.active-item {
+            .nav-link { 
+                @media screen and (max-width: 992px) {
+                    color: $gold !important;
+                }
+
+                &::after {
+                    width: 100%;
+                    background-color: $gold;
+
+                    @media screen and (max-width: 992px) {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+    }
+    &-link {
+        color: $white !important;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        margin: 0 5px;
+        font-size: 14px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            z-index: -1;
+            transition: all .3s ease-in-out;
+        }
+
+        &:hover {
+            &::after {
+                background-color: $gold;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.nav_lang {
+    @media screen and (max-width: 992px) {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .nav-item {
+        .nav-link {
+            @media screen and (max-width: 992px) {
+                padding: 10px;
+            }
+        }
+        &.active {
+            .nav-link {
+                @media screen and (max-width: 992px) {
+                    color: $gold !important;
+                }
+                &::after {
+                    width: 100%;
+                    background-color: $gold;
+
+                    @media screen and (max-width: 992px) {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
