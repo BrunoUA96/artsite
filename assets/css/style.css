@@ -66,7 +66,7 @@ section {
   transition: all .3s ease-in-out;
   z-index: 1;
   border-radius: 0;
-  box-shadow: none !important; }
+  box-shadow: 1px 3px 3px 0px #c9ab81; }
   .g-btn::before {
     content: '';
     position: absolute;
@@ -175,12 +175,23 @@ section {
   background-size: cover; }
 
 footer {
-  background-color: #272727;
+  background-color: #c9ab81;
   color: #fff;
   padding: 35px; }
-  footer ul {
-    display: flex;
-    justify-content: space-around; }
+  @media screen and (min-width: 992px) {
+    footer ul {
+      display: flex;
+      justify-content: space-around; } }
+  footer ul .nav-item .nav-link {
+    z-index: 1; }
+    footer ul .nav-item .nav-link:hover {
+      color: #c9ab81 !important; }
+      footer ul .nav-item .nav-link:hover::after {
+        background-color: #fff; }
+  footer ul .nav-item.active-item .nav-link {
+    color: #c9ab81 !important; }
+    footer ul .nav-item.active-item .nav-link::after {
+      background-color: #fff; }
 
 .card_item {
   position: relative;

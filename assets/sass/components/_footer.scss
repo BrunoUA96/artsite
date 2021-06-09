@@ -1,10 +1,38 @@
 footer {
-    background-color: #272727;
+    background-color: $gold;
     color: $white;
     padding: 35px;
     
     ul {
-        display: flex;
-        justify-content: space-around;
+        @media screen and (min-width: 992px) {
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-item {
+            .nav-link {
+                z-index: 1;
+
+                &:hover {
+                    color: $gold !important;
+                    
+                    &::after {
+                        background-color: $white;
+                    }
+                }
+            }
+            &.active-item {
+                .nav-link {
+                    color: $gold !important;
+
+                    &::after {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    .social_box {
+
     }
 }

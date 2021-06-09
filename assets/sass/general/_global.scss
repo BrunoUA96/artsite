@@ -79,7 +79,7 @@ section {
     transition: all .3s ease-in-out;
     z-index: 1;
     border-radius: 0;
-    box-shadow: none !important;
+    box-shadow: 1px 3px 3px 0px $gold;
 
     &::before {
         content: '';
