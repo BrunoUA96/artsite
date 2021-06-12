@@ -1,0 +1,18 @@
+title = "Blog"
+url = "/blog/:slug"
+layout = "default"
+
+[slideshows]
+sstheme = "artsite"
+
+[blogPost]
+slug = "{{:slug}}"
+==
+
+{% partial 'general/banner' %}
+
+<h1>
+    {{post.title}}
+</h1>
+<p class="excerpt">{{ post.summary|raw }}</p>
+<img src="{{post.featured_images[0].path}}" alt="{{post.title}}">

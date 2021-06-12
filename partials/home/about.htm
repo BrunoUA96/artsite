@@ -1,16 +1,13 @@
 <div class="container about mt-5">
     <div class="row">
-        {% partial 'general/title' title = 'About me' %}
+        {% partial 'general/title' title = 'Edward Iov' %}
 
-        <div class="col-md-6 about_image_box img_box_scale">
-            <img class="w-100" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Artist Image">
+        <div class="col-md-4 about_image_box img_box_scale">
+            <img class="w-100" src=" {{'assets/img/about/artist.jpeg'|theme}}" alt="Artist Image">
         </div>
-        <div class="col-md-6 mt-4 mt-md-0 about_text_box">
-            <h1 class="title">
-                Artist Name
-            </h1>
+        <div class="col-md-8 mt-4 mt-md-0 about_text_box">
             <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus accusamus quibusdam dolorum voluptate animi et, excepturi ullam similique minus officia vel sapiente ipsum? Exercitationem ab cum doloremque minima eveniet dignissimos.
+                {{'Test Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus accusamus quibusdam dolorum voluptate animi et'|_}}
             </p>
             <a class="g-btn" href="{{'about-artist'|page}}">
                 <span>

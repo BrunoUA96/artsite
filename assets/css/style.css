@@ -67,21 +67,9 @@ section {
   z-index: 1;
   border-radius: 0;
   box-shadow: 1px 3px 3px 0px #c9ab81; }
-  .g-btn::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 0;
-    transition: all .3s ease-in-out; }
-  .g-btn:hover span {
-    z-index: 1;
-    color: #c9ab81 !important; }
-  .g-btn:hover::before {
-    width: 100%;
+  .g-btn:hover {
     background-color: #fff;
-    z-index: -1; }
+    color: #c9ab81; }
 
 .img_box_scale {
   width: 100%;

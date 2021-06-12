@@ -30,7 +30,7 @@ img {
         display: inline-block;
         text-transform: uppercase;
         display: block;
-        
+
         span {
             display: inline-block;
             padding: 0 40px;
@@ -81,26 +81,8 @@ section {
     border-radius: 0;
     box-shadow: 1px 3px 3px 0px $gold;
 
-    &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 0;
-        transition: all .3s ease-in-out;
-    }
-
     &:hover {
-        span {
-            z-index: 1;
-            color: $gold !important;
-        }
-
-        &::before {
-            width: 100%;
-            background-color: $white;
-            z-index: -1;
-        }
+        background-color: $white;
+        color: $gold;
     }
 }
