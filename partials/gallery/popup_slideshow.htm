@@ -15,9 +15,6 @@
 
 {% put scripts %}
     <script>
-        
-        
-console.log(document.querySelectorAll('.gallery_slideshow'));
         document.querySelectorAll('.slideshow_btn').forEach((element, index) => {
             element.addEventListener('click', () => {
 
@@ -32,7 +29,6 @@ console.log(document.querySelectorAll('.gallery_slideshow'));
                 document.querySelectorAll('.gallery_slideshow')[index].classList.add('zoomOutUp');
                 document.querySelector('body').classList.remove('overflow-body');
             });
-        });
-        
+        }); 
     </script>
 {% endput %}
