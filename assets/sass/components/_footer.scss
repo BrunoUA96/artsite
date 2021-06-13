@@ -15,7 +15,7 @@ footer {
                 &:hover {
                     color: $gold !important;
                     
-                    &::after {
+                    &::before {
                         background-color: $white;
                     }
                 }
@@ -24,15 +24,11 @@ footer {
                 .nav-link {
                     color: $gold !important;
 
-                    &::after {
+                    &::before {
                         background-color: $white;
                     }
                 }
             }
         }
-    }
-
-    .social_box {
-
     }
 }

@@ -38,24 +38,6 @@ id = "{{:id}}"
     </div>
 </div>
 
-<!-- Slideshow popup -->
-<div class="gallery_slideshow">
-    <span class="slideshow_btn gallery_slideshow--btn">
-        <i class="fa fa-times" aria-hidden="true"></i>
-    </span>
-    <div class="gallery_slideshow_box">
-        <div class="gallery_slideshow_box_content">
-            {% for image in product.attachments %} 
-            <div class="gallery_slideshow_box_content_item">
-                <img src="{{ image.getPath }}" alt="{{product.title}}" />
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
-  
-
-
 {% put scripts %}
     <script>
         $('.gallery_slideshow_box_content').slick({
@@ -69,25 +51,15 @@ id = "{{:id}}"
         });
 
         if (document.querySelector('.slick-prev')) {
-            document.querySelector('.slick-prev').innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
-            document.querySelector('.slick-next').innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
-        }
-
-        document.querySelectorAll('.slideshow_btn').forEach(element => {
-            element.addEventListener('click', () => {
-                document.querySelector('.gallery_slideshow').classList.toggle('gallery_slideshow--show');
-
-                if (document.querySelector('.gallery_slideshow').classList.contains('gallery_slideshow--show')) {
-                    document.querySelector('.gallery_slideshow').classList.remove('zoomOutUp');
-                    document.querySelector('.gallery_slideshow').classList.add('zoomInDown');
-                } else {
-                    document.querySelector('.gallery_slideshow').classList.remove('zoomInDown');
-                    document.querySelector('.gallery_slideshow').classList.add('zoomOutUp');
-                }
-
-                document.querySelector('body').classList.toggle('overflow-body');
+            document.querySelectorAll('.gallery_slideshow_box_content').forEach((el, indx) => {
+                document.querySelectorAll('.slick-prev')[indx].innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
+                document.querySelectorAll('.slick-next')[indx].innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
             });
-        });
-        
+        }
     </script>
 {% endput %}
+
+{% partial 'gallery/js_lazy' %}
+
+<!-- Slideshow popup -->
+{% partial 'gallery/popup_slideshow' %}

@@ -8,15 +8,38 @@ sstheme = "artsite"
 
 {% partial 'general/banner' %}
 
-<div class="container mt-5">
+<div class="container mt-5 about">
     <div class="row">
-        {% partial 'general/title' title = 'Abou me' %}
-        <div class="col-md-6">
-            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+        {% partial 'general/title' title = 'Edward Iov' %}
+        <div class="col-md-12 text-center">
+            <img class="img_artist" src="{{'assets/img/about/img_profile.jpeg'|theme}}" alt="">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-10 offset-md-1 mt-5 text-center">
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem aliquam ex praesentium, molestias facere nam quod qui alias expedita modi eveniet eligendi sequi deleniti odit corporis vitae odio saepe unde?
+                Edward Iov is a Moldovan artist. He was born in 1975 in the city of Balti in the north of Moldova.  
+                <img class="img_gerb" src="{{'assets/img/about/gerb.png'|theme}}" alt="">
+            </p>
+            <p class="mb-5">
+                {{'From an early age, he had two occupations: expression and freedom of transmission of his thoughts to the canvas and high competition sport - weightlifting.'|_}} 
+            </p>
+            <div class="row">
+                <div class="col-md-6"><img class="w-100" src="{{'assets/img/about/about2.jpeg'|theme}}" alt=""></div>
+                <div class="col-md-6"><img class="w-100" src="{{'assets/img/about/about4.png'|theme}}" alt=""></div>
+                <div class="col-12 mt-5"><img src="{{'assets/img/about/about1.jpeg'|theme}}" alt=""></div>
+            </div>
+            <p class="my-5">
+                {{'Due to various traumas, he abandoned sport and gave all his time to art.'|_}} 
+            </p>
+            <div class="row">
+                <div class="col-12">
+                    <img src="{{'assets/img/about/about3.jpeg'|theme}}" alt="">
+                </div>
+            </div>
+            <p class="mt-5">
+                The artist works with different styles (cubism, classic art, impressionism, airbrush), and with different types of material such as (oil, acrylic, charcoal, gypsum).
+            </p>
+            <p>
+                In just a word, Edward transports his ideas born in his sleep to the new creations presented on canvas.
             </p>
         </div>
     </div>

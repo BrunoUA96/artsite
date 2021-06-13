@@ -1,0 +1,38 @@
+<div class="gallery_slideshow">
+    <span class="slideshow_btn_close gallery_slideshow--btn">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </span>
+    <div class="gallery_slideshow_box">
+        <div class="gallery_slideshow_box_content">
+            {% for image in product.attachments %} 
+                <div class="gallery_slideshow_box_content_item">
+                    <img class="lazy" data-src="{{ image.getPath }}" alt="{{product.title}}" />
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+    <script>
+        
+        
+console.log(document.querySelectorAll('.gallery_slideshow'));
+        document.querySelectorAll('.slideshow_btn').forEach((element, index) => {
+            element.addEventListener('click', () => {
+
+                document.querySelectorAll('.gallery_slideshow')[index].classList.add('gallery_slideshow--show');
+                document.querySelectorAll('.gallery_slideshow')[index].classList.remove('zoomOutUp');
+                document.querySelectorAll('.gallery_slideshow')[index].classList.add('zoomInDown');
+                document.querySelector('body').classList.add('overflow-body');
+            });
+            document.querySelectorAll('.slideshow_btn_close')[index].addEventListener('click', () => {
+                document.querySelectorAll('.gallery_slideshow')[index].classList.remove('gallery_slideshow--show');
+                document.querySelectorAll('.gallery_slideshow')[index].classList.remove('zoomInDown');
+                document.querySelectorAll('.gallery_slideshow')[index].classList.add('zoomOutUp');
+                document.querySelector('body').classList.remove('overflow-body');
+            });
+        });
+        
+    </script>
+{% endput %}

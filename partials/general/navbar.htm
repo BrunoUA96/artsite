@@ -7,21 +7,28 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item  {{this.page.BaseFileName == 'gallery' ? 'active-item'}} ">
-                <a class="nav-link" href="{{'gallery'|page}}">
+            <li class="nav-item dropdown {{this.page.BaseFileName == 'gallery' ? 'active-item'}} {{this.page.BaseFileName == 'gallery-new-art' ? 'active-item'}}">
+                <a class="nav-link dropdown-toggle" href="#" id="galleryDrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{'Gallery'|_}}
                 </a>
-            </li> 
+                <div class="dropdown-menu" aria-labelledby="galleryDrop">
+                    <a class="dropdown-item {{this.page.BaseFileName == 'gallery-new-art' ? 'dropdown-item--active'}}" href="{{'gallery-new-art'|page}}">New Art works</a>
+                    <a class="dropdown-item {{this.page.BaseFileName == 'gallery' ? 'dropdown-item--active'}}" href="{{'gallery'|page}}">All works</a>
+                </div>
+            </li>
+
             <li class="nav-item {{this.page.BaseFileName == 'about-artist' ? 'active-item'}}">
                 <a class="nav-link" href="{{'about-artist'|page}}">
                     {{'About Artist'|_}}
                 </a>
             </li>
-            <li class="nav-item {{this.page.BaseFileName == 'blog-list' ? 'active-item'}}">
-                <a class="nav-link" href="{{'blog-list'|page}}">
-                    {{'Blog'|_}}
-                </a>
-            </li>
+            {% if false %}
+                <li class="nav-item {{this.page.BaseFileName == 'blog-list' ? 'active-item'}}">
+                    <a class="nav-link" href="{{'blog-list'|page}}">
+                        {{'Blog'|_}}
+                    </a>
+                </li>
+            {% endif %}
         </ul>
       
         <!-- Language -->

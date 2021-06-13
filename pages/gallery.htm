@@ -21,3 +21,26 @@ sstheme = "artsite"
         {% endfor %}
     </div>
 </div>
+
+{% put scripts %}
+    <script>
+        $('.gallery_slideshow_box_content').slick({
+            dots: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
+        });
+
+        if (document.querySelector('.slick-prev')) {
+            document.querySelectorAll('.gallery_slideshow_box_content').forEach((el, indx) => {
+                document.querySelectorAll('.slick-prev')[indx].innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
+                document.querySelectorAll('.slick-next')[indx].innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
+            });
+        }
+    </script>
+{% endput %}
+
+{% partial 'gallery/js_lazy' %}

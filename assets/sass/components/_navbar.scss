@@ -31,19 +31,47 @@
         @media screen and (max-width: 992px) {
             text-align: center;
         }
-        &.active-item {
+        &.show {
             .nav-link { 
                 @media screen and (max-width: 992px) {
                     color: $gold !important;
                 }
 
-                &::after {
+                &::before {
                     width: 100%;
                     background-color: $gold;
 
                     @media screen and (max-width: 992px) {
                         background-color: $white;
                     }
+                }
+            }
+        }
+        &.active-item {
+            .nav-link { 
+                @media screen and (max-width: 992px) {
+                    color: $gold !important;
+                }
+
+                &::before {
+                    width: 100%;
+                    background-color: $gold;
+
+                    @media screen and (max-width: 992px) {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+        .dropdown-menu {
+            .dropdown-item {
+                &:active {
+                    background-color: $gold !important;
+                    color: $white;
+                }
+                &.dropdown-item--active {
+                    background-color: $gold !important;
+                    color: $white;
                 }
             }
         }
@@ -57,7 +85,7 @@
         margin: 0 5px;
         font-size: 14px;
 
-        &::after {
+        &::before {
             content: '';
             position: absolute;
             left: 0;
@@ -69,7 +97,7 @@
         }
 
         &:hover {
-            &::after {
+            &::before {
                 background-color: $gold;
                 width: 100%;
             }
@@ -95,7 +123,7 @@
                 @media screen and (max-width: 992px) {
                     color: $gold !important;
                 }
-                &::after {
+                &::before {
                     width: 100%;
                     background-color: $gold;
 

@@ -3,10 +3,6 @@
         <div class="col-md-3 col-sm-6 text-center text-md-left">
             <h4 class="mb-0">Artist Name</h4>
             <span class="d-block mt-3">
-                <i class="fa fa-mobile fa-fw fa-lg" aria-hidden="true"></i>
-                937 373 213
-            </span>
-            <span class="d-block mt-3">
                 <i class="fa fa-envelope fa-fw fa-lg" aria-hidden="true"></i>
                 <a href="mailto:email@email.com">
                     email@email.com
@@ -20,19 +16,18 @@
                         {{'Home'|_}}
                     </a>
                 </li> 
-                <li class="nav-item {{this.page.BaseFileName == 'gallery' ? 'active-item'}} ">
-                    <a class="nav-link" href="{{'gallery'|page}}">
+                <li class="nav-item dropdown {{this.page.BaseFileName == 'gallery' ? 'active-item'}} {{this.page.BaseFileName == 'gallery-new-art' ? 'active-item'}}">
+                    <a class="nav-link dropdown-toggle" href="#" id="galleryDrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{'Gallery'|_}}
                     </a>
-                </li> 
+                    <div class="dropdown-menu" aria-labelledby="galleryDrop">
+                        <a class="dropdown-item {{this.page.BaseFileName == 'gallery-new-art' ? 'dropdown-item--active'}}" href="{{'gallery-new-art'|page}}">New Art works</a>
+                        <a class="dropdown-item {{this.page.BaseFileName == 'gallery' ? 'dropdown-item--active'}}" href="{{'gallery'|page}}">All works</a>
+                    </div>
+                </li>
                 <li class="nav-item {{this.page.BaseFileName == 'about-artist' ? 'active-item'}}">
                     <a class="nav-link" href="{{'about-artist'|page}}">
                         {{'About Artist'|_}}
-                    </a>
-                </li>
-                <li class="nav-item {{this.page.BaseFileName == 'contacts' ? 'active-item'}}">
-                    <a class="nav-link" href="{{'contacts'|page}}">
-                        {{'Contacts'|_}}
                     </a>
                 </li>
             </ul>

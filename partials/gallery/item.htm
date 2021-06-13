@@ -1,8 +1,17 @@
 <div class="col-md-6 col-lg-4 mb-4">
     <div class="card_item text-center">
+        {% if product.new_work != 0 %}
         <a href="{{'painting'|page({id: product.id})}}">
+        {% else %}
+        <article class="slideshow_btn">
+        {% endif %}
             <div class="card_item_img_box img_box_scale">
-                <img class="card_item_img" src="{{ product.attachments[0].path }}" alt="{{ product.title }}">
+                {% if product.new_work != 0 and this.page.BaseFileName == 'gallery' %}
+                    <span>
+                        New Art
+                    </span>
+                {% endif %}
+                <img class="card_item_img lazy" data-src="{{ product.attachments[0].path }}">
             </div>
             <div class="card_item_text_content">
                 <h3 class="card_item_title mt-4">
@@ -11,9 +20,16 @@
                 <span class="card_item_desc">
                     {{ product.description|raw }}
                 </span>
-                <div class="card_item_btn_box">
-                </div>
             </div>
+        {% if product.new_work != 0 %}
         </a>
+        {% else %}
+        </article>
+        {% endif %}
     </div>
 </div>
+
+{% if product.new_work == 0 %}
+    <!-- Slideshow popup -->
+    {% partial 'gallery/popup_slideshow' %}
+{% endif %}
