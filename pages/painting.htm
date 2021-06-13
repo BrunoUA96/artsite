@@ -15,7 +15,11 @@ id = "{{:id}}"
     <div class="row">
         <div class="col-md-6">
             <div class="img_box">
-                <img src="{{ product.attachments.0.path }}" alt="{{product.title}}">
+                {% if product.attachments[0].path %}
+                <img src="{{ product.attachments[0].path }}" alt="{{product.title}}">
+                {% else %}
+                <span class="d-block text-center">{{'Painting will soon add'|_}}</span>
+                {% endif %}
             </div>
         </div>
         <div class="col-md-6">
@@ -27,12 +31,13 @@ id = "{{:id}}"
                 <p class="paintind_text_desc">
                     {{ product.description|raw }}
                 </p>
-                
+                {% if product.attachments[0].path %}
                 <div class="slideshow_btn g-btn">
                     <span>
                         {{'Show Paintings'|_}}
                     </span>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
