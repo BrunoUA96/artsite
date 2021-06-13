@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row destaque_items">
+            {% for product in catalog.getProducts %}
+                {% if product.featured != 0 %}
+                    <img class="card_item_img lazy" data-src="{{ product.attachments[0].path }}">
+                {% endif %}
+            {% endfor %}
+    </div>
+</div>
+
+{% put scripts %}
+<script>
+    $('.destaque_items').slick({
+        dots: true,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+    });
+</script>
+{% endput %}
+
+{% partial 'gallery/js_lazy' %}

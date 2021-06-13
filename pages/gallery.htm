@@ -17,7 +17,9 @@ sstheme = "artsite"
     </div>
     <div class="row">
         {% for product in catalog.getProducts %}
-            {% partial 'gallery/item' product = product %}
+            {% if product.new_work != 1 %}
+                {% partial 'gallery/item' product = product %}
+            {% endif %}
         {% endfor %}
     </div>
 </div>
