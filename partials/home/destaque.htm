@@ -1,22 +1,45 @@
-<div class="container">
-    <div class="row destaque_items">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 px-0 destaque_item_list">
             {% for product in catalog.getProducts %}
                 {% if product.featured != 0 %}
-                    <img class="card_item_img lazy" data-src="{{ product.attachments[0].path }}">
+                    <div class="destaque_item" style="background-image: url('{{ product.attachments[0].path }}');">
+                        <div class="destaque_item_text_content title_box">
+                            <h3 class="destaque_item_title">
+                                    {{product.title}}
+                            </h3>
+                        </div>
+                        <a class="destaque_item_link" href="">
+                            <div class="destaque_item_img_box">
+                                <img class="destaque_item_img" data-lazy="{{ product.attachments[0].path }}">
+                            </div>
+                        </a>
+                    </div>
                 {% endif %}
             {% endfor %}
+        </div>
     </div>
 </div>
 
 {% put scripts %}
 <script>
-    $('.destaque_items').slick({
+    $('.destaque_item_list').slick({
+        lazyLoad: 'ondemand',
         dots: true,
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 1,
+        slidesToScroll: 1,
         infinite: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        duration: 8000,
+        fade: true,
+        cssEase: 'ease',
+        pauseOnHover: false
     });
+
+    if (document.querySelector('.slick-prev')) {
+        document.querySelector('.slick-prev').innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
+        document.querySelector('.slick-next').innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
+    }
 </script>
 {% endput %}
-
-{% partial 'gallery/js_lazy' %}
