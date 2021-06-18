@@ -31,13 +31,22 @@ id = "{{:id}}"
                 <p class="paintind_text_desc">
                     {{ product.description|raw }}
                 </p>
-                {% if product.attachments[0].path %}
-                <div class="slideshow_btn g-btn">
-                    <span>
-                        {{'Show Paintings'|_}}
-                    </span>
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        {% if product.attachments[0].path %}
+                            <div class="slideshow_btn g-btn w-100 text-center">
+                                <span>
+                                    {{'Show Paintings'|_}}
+                                </span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <a class="g-btn mt-3 mt-lg-0 w-100 text-center" href="mailto:GemiosArt@gmail.com">
+                            Contact about paiting
+                        </a>
+                    </div>
                 </div>
-                {% endif %}
             </div>
         </div>
     </div>

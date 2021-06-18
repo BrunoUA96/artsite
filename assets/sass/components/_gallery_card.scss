@@ -70,6 +70,10 @@
 
     &_title {
         color: $black;
+
+        @media screen and (max-width: 992px) {
+            font-size: 20px;
+        }
     }
 
     &_desc {

@@ -1,40 +1,131 @@
-<div class="container-fluid">
+<div class="container-fluid banner_home">
     <div class="row">
-        <div class="col-12 px-0 destaque_item_list">
-            {% for product in catalog.getProducts %}
-                {% if product.featured != 0 %}
-                    <div class="destaque_item" style="background-image: url('{{ product.attachments[0].path }}');">
-                        <div class="destaque_item_text_content title_box">
-                            <h3 class="destaque_item_title">
-                                    {{product.title}}
-                            </h3>
-                        </div>
-                        <a class="destaque_item_link" href="">
-                            <div class="destaque_item_img_box">
-                                <img class="destaque_item_img" data-lazy="{{ product.attachments[0].path }}">
-                            </div>
-                        </a>
+        <div class="col-lg-4 banner_home_artist py-3 justify-content-center align-items-center">
+            <div class="row h-100">
+                <div class="col-12 col-md-6 col-lg-12">
+                    <div class="w-100 img_box_scale text-center">
+                        <img src=" {{'assets/img/about/artist.jpeg'|theme}}" alt="Artist Image">
                     </div>
-                {% endif %}
-            {% endfor %}
+                </div>
+                <div class="col-12 col-md-6 mb-4 mb-md-0 d-lg-none title_box">
+                    <h1 class="my-3 title">
+                        <span>
+                            Edward Yov
+                        </span>
+                    </h1>
+                    <h3 class="mb-3">
+                        {{'Edward Yov is a Moldovan artist. He was born in 1975 in the city of Balti in the north of Moldova.'|_}}
+                    </h3>
+                    <a class="g-btn" href="{{'about-artist'|page}}">
+                        <span>
+                            About Artist
+                        </span>
+                    </a>
+                </div>
+            </div>
         </div>
+
+        <div class="col-lg-8 pb-3 d-flex flex-column">
+            <div class="row banner_home_text">
+                <div class="col-12 mb-4 mb-md-0 d-none d-lg-block title_box">
+                    <h1 class="my-3 title">
+                        <span>
+                            Edward Yov
+                        </span>
+                    </h1>
+                    <h3 class="mb-3">
+                        {{'Edward Yov is a Moldovan artist. He was born in 1975 in the city of Balti in the north of Moldova.'|_}}
+                    </h3>
+                    <a class="g-btn" href="{{'about-artist'|page}}">
+                        <span>
+                            About Artist
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="row home_gallery_box mt-auto">
+                <div class="col-12">
+                    <div class="home_gallery_box_back">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="home_gallery">
+                                    {% for product in catalog.getProducts %}
+                                        {% if product.featured != 0 %}
+                                            <div class="home_gallery_item">
+                                                <a class="home_gallery_item_link" href="{{'painting'|page({id: product.id})}}">
+                                                    <div class="img_box_scale">
+                                                        <img data-lazy="{{ product.attachments[0].path }}" alt="" class="home_gallery_item_img">
+                                                    </div>
+                                                    <h3 class="home_gallery_item_title mt-2">
+                                                        {{product.title}}
+                                                    </h3>
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if false %}
+            <div class="col-12 px-0 destaque_item_list">
+                {% for product in catalog.getProducts %}
+                    {% if product.featured != 0 %}
+                        <div class="destaque_item" style="background-image: url('{{ product.attachments[0].path }}');">
+                            <div class="destaque_item_text_content title_box">
+                                <h3 class="destaque_item_title">
+                                        {{product.title}}
+                                </h3>
+                            </div>
+                            <a class="destaque_item_link" href="">
+                                <div class="destaque_item_img_box">
+                                    <img class="destaque_item_img" data-lazy="{{ product.attachments[0].path }}">
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </div>
 
 {% put scripts %}
 <script>
-    $('.destaque_item_list').slick({
+    $('.home_gallery').slick({
         lazyLoad: 'ondemand',
-        dots: true,
-        slidesToShow: 1,
+        slidesToShow: 3,
         slidesToScroll: 1,
         infinite: true,
         autoplay: true,
         autoplaySpeed: 4000,
         duration: 8000,
-        fade: true,
-        cssEase: 'ease',
-        pauseOnHover: false
+        pauseOnHover: false,
+        dots: false,
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true
+                }
+            },
+        ]
     });
 
     if (document.querySelector('.slick-prev')) {

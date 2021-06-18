@@ -6,6 +6,46 @@
     @media screen and (max-width: 992px) {
         background-color: $gold;
         background-image: none;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    &.home_nav {
+        background-color: #c9ab81;
+        .dropdown.show {
+            .nav-link { 
+                color: $gold !important;
+
+                &::before {
+                    width: 100% !important;
+                    background-color: $white !important;
+
+                    @media screen and (max-width: 992px) {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+        .nav-link {
+            &:hover {
+                color: $gold !important;
+            }
+            &::before {
+                background-color: $white;
+            }
+        }
+
+        .nav_lang {
+            .nav-item.active {
+                .nav-link {
+                        color: $gold !important;
+
+                    &::before {
+                        background-color: $white !important;
+                    }
+                }
+            }
+        }
     }
 
     .navbar-brand {
@@ -13,7 +53,7 @@
     }
 
     .navbar-toggler {
-        background-color: $white;
+        background-color: #e7d9c6;
     }
 
     &-collapse {
@@ -21,7 +61,6 @@
         
         @media screen and (max-width: 992px) {
             margin-left: 0;
-            margin-top: 15px;
         }
     }
 }
@@ -109,7 +148,6 @@
     @media screen and (max-width: 992px) {
         flex-direction: row;
         justify-content: center;
-        margin-top: 15px;
     }
 
     .nav-item {
