@@ -14,12 +14,15 @@
                 <img class="card_item_img lazy" data-src="{{ product.attachments[0].path }}">
             </div>
             <div class="card_item_text_content">
-                <h3 class="card_item_title mt-4">
+                <h3 class="card_item_title mt-4 mb-0">
                     {{ product.title }}
                 </h3>
-                <span class="card_item_desc">
-                    {{ product.description|raw }}
-                </span>
+
+                {% if false %}
+                    <span class="card_item_desc">
+                        {{ product.description|raw }}
+                    </span>
+                {% endif %}
             </div>
         {% if product.new_work != 0 %}
         </a>
