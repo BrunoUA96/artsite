@@ -2,13 +2,14 @@
     width: 100%;
     min-height: 230px;
     background-attachment: fixed;
-    background-position: center;
+    //background-position: center;
     background-repeat: no-repeat;
     background-size: 100% auto;
 
     @media screen and (max-width: 992px) {
-        background-size: 100%;
-        background-position: top left;
+        background-attachment: local;
+        background-size: auto 200px;
+        background-position: center;
         height: auto;
         min-height: 200px;
     }

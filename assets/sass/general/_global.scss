@@ -69,8 +69,10 @@ a {
     color: inherit;
 }
 
-section {
-    margin-top: -70px;
+@media screen and (min-width: 992px) {
+    section {
+        margin-top: -70px;
+    }
 }
 
 .g-btn {

@@ -4,7 +4,7 @@
             <div class="row h-100">
                 <div class="col-12 col-md-6 col-lg-12">
                     <div class="w-100 img_box_scale text-center">
-                        <img src=" {{'assets/img/about/artist.jpeg'|theme}}" alt="Artist Image">
+                        <img src=" {{'assets/img/about/artist.jpeg'|theme|resize(400, 500, { mode: 'crop', quality: '90', extension: 'webp' })}}" alt="Artist Image">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 mb-4 mb-md-0 d-lg-none title_box">
@@ -54,7 +54,7 @@
                                             <div class="home_gallery_item">
                                                 <a class="home_gallery_item_link" href="{{'painting'|page({id: product.id})}}">
                                                     <div class="img_box_scale">
-                                                        <img data-lazy="{{ product.attachments[0].path }}" alt="" class="home_gallery_item_img">
+                                                        <img data-lazy="{{ product.attachments[0].path|resize(250, 250, { mode: 'crop', quality: '80', extension: 'webp' }) }}" alt="" class="home_gallery_item_img">
                                                     </div>
                                                     <h3 class="home_gallery_item_title mt-2">
                                                         {{product.title}}
@@ -70,27 +70,6 @@
                 </div>
             </div>
         </div>
-
-        {% if false %}
-            <div class="col-12 px-0 destaque_item_list">
-                {% for product in catalog.getProducts %}
-                    {% if product.featured != 0 %}
-                        <div class="destaque_item" style="background-image: url('{{ product.attachments[0].path }}');">
-                            <div class="destaque_item_text_content title_box">
-                                <h3 class="destaque_item_title">
-                                        {{product.title}}
-                                </h3>
-                            </div>
-                            <a class="destaque_item_link" href="">
-                                <div class="destaque_item_img_box">
-                                    <img class="destaque_item_img" data-lazy="{{ product.attachments[0].path }}">
-                                </div>
-                            </a>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endif %}
     </div>
 </div>
 

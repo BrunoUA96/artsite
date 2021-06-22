@@ -6,7 +6,7 @@
         <div class="gallery_slideshow_box_content">
             {% for image in product.attachments %} 
                 <div class="gallery_slideshow_box_content_item">
-                    <img class="lazy" data-src="{{ image.getPath }}" alt="{{product.title}}" />
+                    <img class="lazy" data-src="{{ image.getPath|resize(1920, 1080, { mode: 'auto', quality: '90', extension: 'webp' }) }}" alt="{{product.title}}" />
                 </div>
             {% endfor %}
         </div>

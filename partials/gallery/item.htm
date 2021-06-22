@@ -11,7 +11,7 @@
                         New Art
                     </span>
                 {% endif %}
-                <img class="card_item_img lazy" data-src="{{ product.attachments[0].path }}">
+                <img class="card_item_img lazy" data-src="{{ product.attachments[0].path|resize(350, 400, { mode: 'crop', quality: '90', extension: 'webp' }) }}">
             </div>
             <div class="card_item_text_content">
                 <h3 class="card_item_title mt-4 mb-0">

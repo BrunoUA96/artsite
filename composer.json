@@ -1,19 +1,19 @@
 {
-    "name": "october/demo-theme",
-    "type": "october-theme",
-    "description": "Demo OctoberCMS theme",
-    "keywords": ["october", "cms", "demo", "theme"],
+    "name": "october/gemiosart-theme",
+    "type": "gemiosart-theme",
+    "description": "Gemios Art Site",
+    "keywords": ["october", "cms", "gemiosart", "gemeosart", "theme"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Alexey Bobkov",
-            "email": "aleksey.bobkov@gmail.com",
-            "role": "Co-founder"
+            "name": "Oleg Babinetchi",
+            "email": "oleg.luks@sapo.pt",
+            "role": "Founder"
         },
         {
-            "name": "Samuel Georges",
-            "email": "daftspunky@gmail.com",
-            "role": "Co-founder"
+            "name": "Ostap Klysa",
+            "email": "ostapklysa@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
