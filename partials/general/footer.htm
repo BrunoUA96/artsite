@@ -20,6 +20,11 @@
                         <a class="dropdown-item {{this.page.BaseFileName == 'gallery' ? 'dropdown-item--active'}}" href="{{'gallery'|page}}">All works</a>
                     </div>
                 </li>
+                <li class="nav-item {{this.page.BaseFileName == 'blog-list' ? 'active-item'}}">
+                    <a class="nav-link" href="{{'blog-list'|page}}">
+                        {{'Blog'|_}}
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="col-md-3 col-sm-12 mt-4 mt-md-0 text-center text-md-right">

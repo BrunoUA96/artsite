@@ -1,13 +1,18 @@
 title = "Gallery"
 url = "/gallery"
 layout = "default"
+is_hidden = 0
+enabled_in_sitemap = 1
+model_class = "Artsite\Catalog\Models\Product"
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
 
 [slideshows]
 sstheme = "artsite"
 
 [catalog]
 ==
-
 {% partial 'general/banner' %}
 
 <div class="container mt-5">

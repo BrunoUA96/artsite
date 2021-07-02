@@ -1,18 +1,68 @@
 title = "Blog"
 url = "/blog/:slug"
 layout = "default"
+is_hidden = 0
+enabled_in_sitemap = 1
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
 
 [slideshows]
 sstheme = "artsite"
 
 [blogPost]
 slug = "{{:slug}}"
+categoryPage = "blog/category"
 ==
-
 {% partial 'general/banner' %}
 
-<h1>
-    {{post.title}}
-</h1>
-<p class="excerpt">{{ post.summary|raw }}</p>
-<img src="{{post.featured_images[0].path}}" alt="{{post.title}}">
+<div class="container">
+    <div class="row">
+        <div class="col-12 title_box">
+            <h1 class="text-center my-5 title">
+                <span>
+                    {{post.title}}  
+                </span>
+            </h1>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="slideshow-blog">
+                {% for image in post.featured_images %}
+                <div class="slideshow-blog-item">
+                    <img
+                        data-src="{{ image.filename }}"
+                        src="{{ image.path }}"
+                        alt="{{ post.title }}" 
+                        style="max-height: 70vh; width: auto;"
+                    />
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p class="excerpt">{{ post.summary|raw }}</p>
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+<script>
+    $('.slideshow-blog').slick({
+            dots: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            adaptiveHeight: true
+        });
+        if (document.querySelector('.slick-prev')) {
+            document.querySelectorAll('.slideshow-blog').forEach((el, indx) => {
+                document.querySelectorAll('.slick-prev')[indx].innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
+                document.querySelectorAll('.slick-next')[indx].innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
+            });
+        }
+</script>
+{% endput %}

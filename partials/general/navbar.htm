@@ -23,12 +23,13 @@
                         {{'About Artist'|_}}
                     </a>
                 </li>
-                <li class="nav-item {{this.page.BaseFileName == 'blog-list' ? 'active-item'}}">
-                    <a class="nav-link" href="{{'blog-list'|page}}">
-                        {{'Blog'|_}}
-                    </a>
-                </li>
             {% endif %}
+            
+            <li class="nav-item {{this.page.BaseFileName == 'blog-list' ? 'active-item'}}">
+                <a class="nav-link" href="{{'blog-list'|page}}">
+                    {{'Blog'|_}}
+                </a>
+            </li>
         </ul>
         <div class="nav_bar_left_side d-flex align-items-center justify-content-center mt-3 mt-lg-0">
             <ul class="navbar-nav navbar_social mr-3">

@@ -1,14 +1,29 @@
 title = "Blog"
 url = "/blog-list"
 layout = "default"
+is_hidden = 0
+enabled_in_sitemap = 1
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
 
 [slideshows]
 sstheme = "artsite"
 
 [blogPosts]
-postsPerPage = "10"
-==
+pageNumber = "{{ :page }}"
+categoryFilter = ":slug"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
 
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+==
 <!-- Banner -->
 {% partial 'general/banner' %}
 
@@ -21,10 +36,10 @@ postsPerPage = "10"
             <div class="col-md-12 mt-5">
                 <a href="{{'blog-page'|page({slug: post.slug})}}">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <img src="{{post.featured_images[0].path}}" alt="{{post.title}}">
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-8">
                             <h3>
                                 {{post.title}}
                             </h3>
@@ -36,4 +51,3 @@ postsPerPage = "10"
         {% endfor %}
     </div>
 </div>
-
