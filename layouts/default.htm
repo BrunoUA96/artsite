@@ -6,19 +6,22 @@ description = "Default layout"
 ==
 
 <!DOCTYPE html>
-<html>
+<html prefix="og: https://ogp.me/ns#">
    <head>
       <meta charset="utf-8" />
+      <meta property="og:title" content="{{ this.page.meta_title }}" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="{{page|page }}" />
+      <meta property="og:image" content="{{'assets/img/about/artist1.jpeg'|theme|resize(400, 500, { mode: 'crop', quality: '90', extension: 'jpeg' })}}" />
+      <meta property="og:image:type" content="image/jpeg">
+      <meta property="og:image:width" content="400">
+      <meta property="og:image:height" content="500">
+      <meta property="og:description" content="{{ this.page.meta_description }}" />
+
       <title>{{ this.page.meta_title }}</title>
 
       <meta name="title" content="{{ this.page.meta_title }}" />
       <meta name="description" content="{{ this.page.meta_description }}" />
-
-      <meta property="og:url" content="{{page|page }}" />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content="{{ this.page.meta_title }}" />
-      <meta property="og:description" content="{{ this.page.meta_description }}" />
-      <meta property="og:image" content="{{'assets/img/about/artist1.jpeg'|theme|resize(400, 500, { mode: 'crop', quality: '90', extension: 'webp' })}}" />
 
       <meta name="author" content="OctoberCMS" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,6 +36,17 @@ description = "Default layout"
       <link rel="stylesheet" href="{{'assets/css/font-awesome.min.css'|theme}}" />
 
       {% styles %}
+      
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-199868485-1">
+      </script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+
+         gtag('config', 'UA-199868485-1');
+      </script>
    </head>
    <body>
       <!-- Header -->
