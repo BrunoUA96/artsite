@@ -1,15 +1,28 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-3 col-sm-6 text-center text-md-left">
-            <h4 class="mb-0">Edward Yov</h4>
-            <span class="d-block mt-3">
-                <i class="fa fa-envelope fa-fw fa-lg" aria-hidden="true"></i>
-                <a href="mailto:GemiosArt@gmail.com">
-                    GemeosArt@gmail.com
-                </a>
-            </span>
+      <div class="col-12 text-center">
+        <a class="navbar-brand mr-0" href="{{'home'|page}}">
+          <div class="logo_box footer">
+            <div class="logo_box_name">
+                <span>G</span><span>A</span>
+            </div>
+            <div class="logo_box--autor_name">
+              Edward Yov
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-4 col-sm-6 d-flex align-items-center">
+          <span class="d-block">
+              <i class="fa fa-envelope fa-fw fa-lg" aria-hidden="true"></i>
+              <a class="nav-link d-inline" href="mailto:GemiosArt@gmail.com">
+                  GemeosArt@gmail.com
+              </a>
+          </span>
         </div>
-        <div class="col-md-6 col-sm-6 mt-3 mt-sm-0">
+        <div class="col-md-4 col-sm-6 mt-3 mt-sm-0">
             <ul>
                 <li class="nav-item dropdown {{this.page.BaseFileName == 'gallery' ? 'active-item'}} {{this.page.BaseFileName == 'gallery-new-art' ? 'active-item'}}">
                     <a class="nav-link dropdown-toggle" href="#" id="galleryDrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -20,6 +33,12 @@
                         <a class="dropdown-item {{this.page.BaseFileName == 'gallery' ? 'dropdown-item--active'}}" href="{{'gallery'|page}}">All works</a>
                     </div>
                 </li>
+                <li class="nav-item {{this.page.BaseFileName == 'about-artist' ? 'active-item'}}">
+                    <a class="nav-link" href="{{'about-artist'|page}}">
+                        {{'About'|_}}
+                    </a>
+                </li>
+                </li>
                 <li class="nav-item {{this.page.BaseFileName == 'blog-list' ? 'active-item'}}">
                     <a class="nav-link" href="{{'blog-list'|page}}">
                         {{'Blog'|_}}
@@ -27,20 +46,16 @@
                 </li>
             </ul>
         </div>
-        <div class="col-md-3 col-sm-12 mt-4 mt-md-0 text-center text-md-right">
-            <h5 class="mb-0">
-                Social Links
-            </h5>
-            <div class="social_box mt-3">
+        <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-end">
+            <div class="social_box">
                 <a href="https://www.facebook.com/edward.yov">
-                    <i class="fa fa-facebook-official fa-fw fa-lg" aria-hidden="true"></i>
+                    <i class="fa fa-facebook fa-fw fa-lg" aria-hidden="true"></i>
                 </a>
-                <!-- <a href="">
-                    <i class="fa fa-instagram fa-fw fa-lg" aria-hidden="true"></i>
+            </div>
+            <div class="social_box">
+                <a href="https://www.facebook.com/edward.yov">
+                    <i class="fa fa-facebook fa-fw fa-lg" aria-hidden="true"></i>
                 </a>
-                <a href="">
-                    <i class="fa fa-youtube-play fa-fw fa-lg" aria-hidden="true"></i>
-                </a> -->
             </div>
         </div>
     </div>

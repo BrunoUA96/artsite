@@ -1,12 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light {{this.page.BaseFileName == 'home' ? 'home_nav'}}">
     <a class="navbar-brand" href="{{'home'|page}}">
-        GemeosArt
+      <div class="logo_box">
+          <div class="logo_box_name">
+            <span>G</span><span>A</span>
+          </div>
+      </div>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler mt-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mt-4 mt-lg-0 mr-auto">
+        <ul class="navbar-nav mt-4 mt-lg-0 ml-auto navigation-content">
             <li class="nav-item dropdown {{this.page.BaseFileName == 'gallery' ? 'active-item'}} {{this.page.BaseFileName == 'gallery-new-art' ? 'active-item'}}">
                 <a class="nav-link dropdown-toggle" href="#" id="galleryDrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{'Gallery'|_}}
@@ -16,31 +20,46 @@
                     <a class="dropdown-item {{this.page.BaseFileName == 'gallery' ? 'dropdown-item--active'}}" href="{{'gallery'|page}}">All works</a>
                 </div>
             </li>
-
-            {% if false %}
-                <li class="nav-item {{this.page.BaseFileName == 'about-artist' ? 'active-item'}}">
-                    <a class="nav-link" href="{{'about-artist'|page}}">
-                        {{'About Artist'|_}}
-                    </a>
-                </li>
-            {% endif %}
-            
             <li class="nav-item {{this.page.BaseFileName == 'blog-list' ? 'active-item'}}">
                 <a class="nav-link" href="{{'blog-list'|page}}">
                     {{'Blog'|_}}
                 </a>
             </li>
+            </li>
+            <li class="nav-item {{this.page.BaseFileName == 'about-artist' ? 'active-item'}}">
+                <a class="nav-link" href="{{'about-artist'|page}}">
+                    {{'About'|_}}
+                </a>
+            </li>
         </ul>
         <div class="nav_bar_left_side d-flex align-items-center justify-content-center mt-3 mt-lg-0">
-            <ul class="navbar-nav navbar_social mr-3">
+            <ul class="navbar-nav navbar_social">
                 <li class="nav-item">
-                    <a class="nav-link mr-3" target="_blank" href="https://www.facebook.com/edward.yov">
-                        <i class="fa fa-facebook-official fa-fw fa-lg" aria-hidden="true"></i>
+                    <a class="nav-link" target="_blank" href="https://www.facebook.com/edward.yov">
+                        <i class="fa fa-facebook fa-fw fa-lg" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="#">
+                        <i class="fa fa-instagram fa-fw fa-lg" aria-hidden="true"></i>
                     </a>
                 </li>
             </ul>
+            {% if false %}
             <!-- Language -->
             {% component  'localePicker' %}
+            {% endif %}
         </div>
     </div>
   </nav>
+
+
+  {% put scripts %}
+  <script>
+      const burger = document.querySelector('.navbar-toggler');
+      burger.addEventListener('click', () => {
+        document.querySelector('.navbar').classList.toggle('backColor');
+        document.querySelector('.navbar-toggler').classList.toggle('blackBurger');
+      });
+  </script>
+  {% endput %}

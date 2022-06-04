@@ -1,34 +1,17 @@
 footer {
-    background-color: $gold;
-    color: $white;
-    padding: 35px;
-    
-    ul {
-        @media screen and (min-width: 992px) {
-            display: flex;
-            justify-content: space-around;
-        }
-        .nav-item {
-            .nav-link {
-                z-index: 1;
+  background-color: $blue;
+  color: $white;
+  padding: 35px;
 
-                &:hover {
-                    color: $gold !important;
-                    
-                    &::before {
-                        background-color: $white;
-                    }
-                }
-            }
-            &.active-item {
-                .nav-link {
-                    color: $gold !important;
+  ul {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+  }
 
-                    &::before {
-                        background-color: $white;
-                    }
-                }
-            }
-        }
-    }
+  .nav-link {
+    color: $white !important;
+    text-transform: none;
+  }
 }

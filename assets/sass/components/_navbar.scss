@@ -1,179 +1,207 @@
 .navbar {
-    padding: 15px 35px;
-    z-index: 10;
-    background-image: linear-gradient(rgba($gold, .2), transparent);
+  padding: 15px 35px;
+  z-index: 10;
+  background-color: $gold;
+  @media screen and (max-width: 992px) {
+    background-color: $gold;
+    background-image: none;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 
-    @media screen and (max-width: 992px) {
-        background-color: $gold;
-        background-image: none;
-        padding-left: 15px;
-        padding-right: 15px;
+  &.home_nav {
+    background-color: $gold;
+    transition: all 0.3s;
+
+    &.backColor {
+      background-color: $white;
     }
 
-    &.home_nav {
-        background-color: #c9ab81;
-        .dropdown.show {
-            .nav-link { 
-                color: $gold !important;
+    .dropdown.show {
+      .nav-link {
+        color: $gold !important;
 
-                &::before {
-                    width: 100% !important;
-                    background-color: $white !important;
-
-                    @media screen and (max-width: 992px) {
-                        background-color: $white;
-                    }
-                }
-            }
+        &::before {
+          width: 100% !important;
+          background-color: $white !important;
+          @media screen and (max-width: 992px) {
+            background-color: $white;
+          }
         }
+      }
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav_lang {
+      .nav-item.active {
         .nav-link {
-            &:hover {
-                color: $gold !important;
-            }
-            &::before {
-                background-color: $white;
-            }
+          color: $blue !important;
+
+          &::before {
+            background-color: $white !important;
+          }
         }
+      }
+    }
+  }
 
-        .nav_lang {
-            .nav-item.active {
-                .nav-link {
-                        color: $gold !important;
+  .navbar-brand {
+    color: $blue !important;
+    font-size: 25px;
+  }
 
-                    &::before {
-                        background-color: $white !important;
-                    }
-                }
-            }
-        }
+  .navbar-toggler {
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    width: 37px;
+    height: 26px;
+    margin-bottom: auto;
+    position: relative;
+
+    &[aria-expanded='true'] {
+      span {
+        opacity: 0;
+      }
+
+      &::after {
+        bottom: 12px;
+        transform: rotate(45deg);
+        background-color: $blue;
+      }
+
+      &::before {
+        top: 12px;
+        transform: rotate(-45deg);
+        background-color: $blue;
+      }
     }
 
-    .navbar-brand {
-        color: $white !important;
+    &::after,
+    &::before,
+    span {
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: $white;
+      transition: all 0.5s;
     }
 
-    .navbar-toggler {
-        background-color: #e7d9c6;
+    &::before {
+      top: 0;
     }
 
-    &-collapse {
-        margin-left: 50px;
-        
-        @media screen and (max-width: 992px) {
-            margin-left: 0;
-        }
+    &::after {
+      bottom: 0;
     }
+
+    span {
+      top: calc(50% - 2px);
+    }
+  }
+
+  &-collapse {
+    margin-left: 50px;
+    @media screen and (max-width: 992px) {
+      margin-left: 0;
+    }
+
+    .navigation-content {
+      // border-right: 1px solid $blue;
+    }
+  }
 }
 
 .nav {
-    &-item {
-        @media screen and (max-width: 992px) {
-            text-align: center;
-        }
-        &.show {
-            .nav-link { 
-                @media screen and (max-width: 992px) {
-                    color: $gold !important;
-                }
-
-                &::before {
-                    width: 100%;
-                    background-color: $gold;
-
-                    @media screen and (max-width: 992px) {
-                        background-color: $white;
-                    }
-                }
-            }
-        }
-        &.active-item {
-            .nav-link { 
-                @media screen and (max-width: 992px) {
-                    color: $gold !important;
-                }
-
-                &::before {
-                    width: 100%;
-                    background-color: $gold;
-
-                    @media screen and (max-width: 992px) {
-                        background-color: $white;
-                    }
-                }
-            }
-        }
-        .dropdown-menu {
-            .dropdown-item {
-                &:active {
-                    background-color: $gold !important;
-                    color: $white;
-                }
-                &.dropdown-item--active {
-                    background-color: $gold !important;
-                    color: $white;
-                }
-            }
-        }
+  &-item {
+    @media screen and (max-width: 992px) {
+      text-align: center;
     }
-    &-link {
-        color: $white !important;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        position: relative;
-        margin: 0 5px;
-        font-size: 14px;
+
+    &.show {
+      .nav-link {
+        @media screen and (max-width: 992px) {
+          color: $gold !important;
+        }
 
         &::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 0;
-            z-index: -1;
-            transition: all .3s ease-in-out;
+          width: 100%;
+          background-color: $gold;
+          @media screen and (max-width: 992px) {
+            background-color: $white;
+          }
         }
-
-        &:hover {
-            &::before {
-                background-color: $gold;
-                width: 100%;
-            }
-        }
-    }
-}
-
-.nav_lang {
-    @media screen and (max-width: 992px) {
-        flex-direction: row;
-        justify-content: center;
+      }
     }
 
-    .nav-item {
-        .nav-link {
-            @media screen and (max-width: 992px) {
-                padding: 10px;
-            }
+    &.active-item {
+      .nav-link {
+        &::before {
+          width: 100%;
+          background-color: $white;
         }
-        &.active {
-            .nav-link {
-                @media screen and (max-width: 992px) {
-                    color: $gold !important;
-                }
-                &::before {
-                    width: 100%;
-                    background-color: $gold;
-
-                    @media screen and (max-width: 992px) {
-                        background-color: $white;
-                    }
-                }
-            }
-        }
+      }
     }
+
+    .dropdown-menu {
+      .dropdown-item {
+        &:active {
+          background-color: $gold !important;
+          color: $white;
+        }
+
+        &.dropdown-item--active {
+          background-color: $gold !important;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &-link {
+    color: $blue !important;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    margin: 0 5px;
+    font-size: 18px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      z-index: -1;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      &::before {
+        background-color: $white;
+        width: 100%;
+      }
+    }
+  }
 }
 
 .navbar_social {
-    border-right: 1px solid $white;
+  // border-right: 1px solid $blue;
+  height: 43px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  .nav-link {
+    font-size: 14px;
+  }
 }

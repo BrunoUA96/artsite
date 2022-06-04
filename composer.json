@@ -10,11 +10,6 @@
             "email": "oleg.luks@sapo.pt",
             "role": "Founder"
         },
-        {
-            "name": "Ostap Klysa",
-            "email": "ostapklysa@gmail.com",
-            "role": "Developer"
-        }
     ],
     "require": {
         "php": ">=5.4",

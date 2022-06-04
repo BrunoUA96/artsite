@@ -14,68 +14,82 @@ sstheme = "artsite"
 [catalog]
 id = "{{:id}}"
 ==
+{% if false %}
 {% partial 'general/banner' %}
-
-<div class="container mt-5 painting">
+{% endif %}
+<div class="container-fluid background_color paiting">
+  <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <div class="img_box">
-                {% if product.attachments[0].path %}
-                <img src="{{ product.attachments[0].path }}" alt="{{product.title}}">
-                {% else %}
-                <span class="d-block text-center">{{'Painting will soon add'|_}}</span>
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="painting_text_content">
-                <h2 class="painting_title">
-                    {{ product.title }}
-                </h2>
-
-                <p class="paintind_text_desc">
-                    {{ product.description|raw }}
-                </p>
-                <div class="row">
-                    <div class="col-12 col-lg-6">
-                        {% if product.attachments[0].path %}
-                            <div class="slideshow_btn g-btn w-100 text-center">
-                                <span>
-                                    {{'Show Paintings'|_}}
-                                </span>
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <a class="g-btn mt-3 mt-lg-0 w-100 text-center" href="mailto:GemiosArt@gmail.com">
-                            Contact about paiting
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+      {% partial 'general/title' title = product.title %}
     </div>
+  </div>
+  <div class="container painting d-flex align-items-center">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="img_box">
+          {% if product.attachments[0].path %}
+          <img src="{{ product.attachments[0].path }}" alt="{{product.title}}">
+          {% else %}
+          <span class="d-block text-center">{{'Painting will soon add'|_}}</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="painting_text_content">
+          <!--  <h2 class="painting_title">
+            {{ product.title }}
+          </h2>
+        -->
+          <p class="paintind_text_desc">
+            {{ product.description|raw }}
+          </p>
+          {% if product.description %}
+          <hr>
+          {% endif %}
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              {% if product.attachments[0].path %}
+              <div class="slideshow_btn g-btn w-100 text-center">
+                <span>
+                  {{'Show more Paintings'|_}}
+                </span>
+              </div>
+              {% endif %}
+            </div>
+            <div class="col-12 col-lg-6">
+              <a class="g-btn mt-3 mt-lg-0 w-100 text-center" href="mailto:GemiosArt@gmail.com">
+                <span>
+                  {{'Contact about paiting'|_}}
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-{% put scripts %}
-    <script>
-        $('.gallery_slideshow_box_content').slick({
-            dots: false,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            speed: 500,
-            fade: true,
-            cssEase: 'linear'
-        });
 
-        if (document.querySelector('.slick-prev')) {
-            document.querySelectorAll('.gallery_slideshow_box_content').forEach((el, indx) => {
-                document.querySelectorAll('.slick-prev')[indx].innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
-                document.querySelectorAll('.slick-next')[indx].innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
-            });
-        }
-    </script>
+{% put scripts %}
+<script>
+  $('.gallery_slideshow_box_content').slick({
+    dots: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,
+    speed: 500,
+    fade: true,
+    cssEase: 'linear'
+  });
+
+  if (document.querySelector('.slick-prev')) {
+    document.querySelectorAll('.gallery_slideshow_box_content').forEach((el, indx) => {
+      document.querySelectorAll('.slick-prev')[indx].innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
+      document.querySelectorAll('.slick-next')[indx].innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
+    });
+  }
+</script>
 {% endput %}
 
 {% partial 'gallery/js_lazy' %}

@@ -14,14 +14,15 @@ sstheme = "artsite"
 slug = "{{:slug}}"
 categoryPage = "blog/category"
 ==
+{% if false %}
 {% partial 'general/banner' %}
-
+{% endif %}
 <div class="container">
     <div class="row">
         <div class="col-12 title_box">
             <h1 class="text-center my-5 title">
                 <span>
-                    {{post.title}}  
+                    {{post.title}}
                 </span>
             </h1>
         </div>
@@ -34,7 +35,7 @@ categoryPage = "blog/category"
                     <img
                         data-src="{{ image.filename }}"
                         src="{{ image.path }}"
-                        alt="{{ post.title }}" 
+                        alt="{{ post.title }}"
                         style="max-height: 70vh; width: auto;"
                     />
                 </div>

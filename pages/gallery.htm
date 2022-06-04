@@ -13,19 +13,22 @@ sstheme = "artsite"
 
 [catalog]
 ==
+{% if false %}
 {% partial 'general/banner' %}
+{% endif %}
+<div class="container-fluid background_color gallery">
+    <div class="container">
+        <div class="row">
+            {% partial 'general/title' title = 'Gallery' %}
 
-<div class="container mt-5">
-    <div class="row">
-        {% partial 'general/title' title = 'Gallery' %}
-       
-    </div>
-    <div class="row">
-        {% for product in catalog.getProducts %}
-            {% if product.new_work != 1 %}
-                {% partial 'gallery/item' product = product %}
-            {% endif %}
-        {% endfor %}
+        </div>
+        <div class="row">
+            {% for product in catalog.getProducts %}
+                {% if product.new_work != 1 %}
+                    {% partial 'gallery/item' product = product %}
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 
@@ -41,7 +44,7 @@ sstheme = "artsite"
             fade: true,
             cssEase: 'linear'
         });
-        
+
         if (document.querySelector('.slick-prev')) {
             document.querySelectorAll('.gallery_slideshow_box_content').forEach((el, indx) => {
                 if (el.querySelector('.slick-prev')) {

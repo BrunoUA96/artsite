@@ -4,7 +4,7 @@
     </span>
     <div class="gallery_slideshow_box">
         <div class="gallery_slideshow_box_content">
-            {% for image in product.attachments %} 
+            {% for image in product.attachments %}
                 <div class="gallery_slideshow_box_content_item">
                     <img class="lazy" data-src="{{ image.getPath|resize(1920, 1080, { mode: 'auto', quality: '90', extension: 'webp' }) }}" alt="{{product.title}}" />
                 </div>
@@ -29,6 +29,6 @@
                 document.querySelectorAll('.gallery_slideshow')[index].classList.add('zoomOutUp');
                 document.querySelector('body').classList.remove('overflow-body');
             });
-        }); 
+        });
     </script>
 {% endput %}

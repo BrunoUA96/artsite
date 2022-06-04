@@ -1,99 +1,155 @@
-*, html{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*,
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'EB Garamond', serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: $black;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: $blue;
 }
 
 .overflow-body {
-    overflow: hidden;
+  overflow: hidden;
+}
+
+.background_color {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: $gray;
+    z-index: -5;
+    animation-name: backAnimation;
+    animation-duration: 1s;
+  }
+
+  &.gallery {
+    &::after {
+      right: 0;
+      -webkit-clip-path: polygon(76% 0, 100% 0, 100% 100%, 24% 100%);
+      clip-path: polygon(76% 0, 100% 0, 100% 100%, 24% 100%);
+    }
+  }
+
+  &.paiting {
+    &::after {
+      left: 0;
+
+      clip-path: polygon(0% 0, 24% 0, 76% 100%, 0% 100%);
+    }
+  }
+  @keyframes backAnimation {
+    0% {
+      width: 0;
+    }
+
+    100% {
+      width: 100%;
+    }
+  }
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .title {
-    color: $black;
+  color: $blue;
+  font-family: 'EB Garamond', serif;
 }
 
 .title_box {
-    text-align: center;
+  text-align: center;
 
-    .title {
-        position: relative;
-        display: inline-block;
-        text-transform: uppercase;
-        display: block;
+  .title {
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    display: block;
 
-        span {
-            display: inline-block;
-            padding: 0 40px;
-            color: $black;
-            background-color: $white;
-
-            @media screen and (max-width: 992px) {
-                font-size: 25px;
-            }
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, 0);
-            width: 100%;
-            max-width: 600px;
-            height: 1px;
-            background-color: $gold;
-            z-index: -1;
-        }
+    span {
+      display: inline-block;
+      padding: 0 40px;
+      color: $blue;
+      background-color: $white;
+      @media screen and (max-width: 992px) {
+        font-size: 25px;
+      }
     }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 100%;
+      height: 1px;
+      background-color: $blue;
+      z-index: -1;
+    }
+  }
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-    text-decoration: none !important;
-    color: inherit;
-}
-
-@media screen and (min-width: 992px) {
-    section {
-        margin-top: -70px;
-    }
+  text-decoration: none !important;
+  color: inherit;
 }
 
 .g-btn {
+  display: inline-block;
+  font-size: 19px;
+  position: relative;
+  z-index: 1;
+  border-radius: 0;
+
+  &:hover {
+    span {
+      transform: translate(0);
+    }
+  }
+
+  span {
+    transition: all 0.3s ease-in-out;
     display: inline-block;
-    background-color: $gold;
-    color: $white;
-    border: 1px solid $gold;
+    width: 100%;
     padding: 5px 30px;
-    font-size: 19px;
-    position: relative;
-    transition: all .3s ease-in-out;
-    z-index: 1;
-    border-radius: 0;
-    box-shadow: 1px 3px 3px 0px $gold;
+    color: $white;
+    background-color: $blue;
+    box-shadow: 1px 3px 3px 0 $gold;
+    transform: translate(10px, 10px);
+  }
 
-    @media screen and (max-width: 1200px) {
-        font-size: 15px;
-    }
+  &::before {
+    content: '';
+    border: 1px solid $gold;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  @media screen and (max-width: 1200px) {
+    font-size: 15px;
+  }
 
-    &:hover {
-        background-color: $white;
-        color: $gold;
-    }
+  &:hover {
+    background-color: $white;
+    color: $gold;
+  }
 }

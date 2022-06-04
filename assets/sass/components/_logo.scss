@@ -1,0 +1,54 @@
+.logo_box {
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &.footer {
+    background-color: $white;
+    padding: 10px;
+
+    .logo_box_name {
+      span {
+        color: $gold;
+        font-size: 35px;
+
+        &:first-child {
+          transform: translate(16%, -7px);
+        }
+
+        &:last-child {
+          transform: translate(-15%, 7px);
+        }
+      }
+    }
+
+    .logo_box--autor_name {
+      color: $blue;
+      font-weight: 400;
+    }
+  }
+
+  &_name {
+    span {
+      font-family: 'EB Garamond', serif;
+      display: inline-block;
+      font-weight: 500;
+
+      &:first-child {
+        transform: translate(10px, -10px);
+      }
+
+      &:last-child {
+        transform: translate(2px, 1px);
+      }
+    }
+  }
+
+  &--autor_name {
+    font-size: 19px;
+  }
+}

@@ -1,115 +1,96 @@
+==
 <div class="container-fluid banner_home">
-    <div class="row">
-        <div class="col-lg-4 banner_home_artist py-3 justify-content-center align-items-center">
-            <div class="row h-100">
-                <div class="col-12 col-md-6 col-lg-12">
-                    <div class="w-100 img_box_scale text-center">
-                        <img src=" {{'assets/img/about/artist1.jpeg'|theme|resize(400, 500, { mode: 'crop', quality: '90', extension: 'webp' })}}" alt="Artist Image">
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 mb-4 mb-md-0 d-lg-none title_box">
-                    <h2 class="my-3 title">
-                        <span>
-                            Edward Yov
-                        </span>
-                    </h2>
-                    <h3 class="mb-3">
-                        {{'Edward Yov is a Moldovan artist. He was born in 1975 in the city of Balti in the north of Moldova.'|_}}
-                    </h3>
-                    <a class="g-btn" href="{{'about-artist'|page}}">
-                        <span>
-                            About Artist
-                        </span>
-                    </a>
-                </div>
-            </div>
+  {# Title #}
+  <div class="row">
+    <div class="col-12 banner_home_title_box">
+      <h1 class="banner_home-title d-flex justify-content-between">
+        <span>
+          Gemios
+        </span>
+        <span>
+          Art
+          <span class="autor_name">
+            <strong>by </strong> Edward Yov
+          </span>
+        </span>
+      </h1>
+    </div>
+  </div>
+  {# Slider #}
+  {# Slider main container #}
+    <div class="row row_swiper mt-auto">
+      <div class="col-12 swiper home_gallery">
+        <div class="swiper-wrapper">
+          {% for product in catalog.getProducts %}
+          {% if product.featured != 0 %}
+          <div class="swiper-slide home_gallery_item">
+            <a class="home_gallery_item_link" href="{{'painting'|page({id: product.id})}}">
+              <div class="home_gallery_item_link--box">
+                <img src="{{ product.attachments[0].path|resize(250, 250, { mode: 'crop', quality: '80', extension: 'webp' }) }}" alt="" class="swiper-lazy home_gallery_item_img">
+              </div>
+              <h3 class="home_gallery_item_title mt-2 d-none">
+                {{product.title}}
+              </h3>
+            </a>
+          </div>
+          {% endif %}
+          {% endfor %}
         </div>
-
-        <div class="col-lg-8 pb-3 d-flex flex-column">
-            <div class="row banner_home_text">
-                <div class="col-12 mb-4 mb-md-0 d-none d-lg-block title_box">
-                    <h1 class="my-3 title">
-                        <span>
-                            Edward Yov
-                        </span>
-                    </h1>
-                    <h3 class="mb-3">
-                        {{'Edward Yov is a Moldovan artist. He was born in 1975 in the city of Balti in the north of Moldova.'|_}}
-                    </h3>
-                    <a class="g-btn" href="{{'about-artist'|page}}">
-                        <span>
-                            About Artist
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <div class="row home_gallery_box mt-auto">
-                <div class="col-12">
-                    <div class="home_gallery_box_back">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="home_gallery">
-                                    {% for product in catalog.getProducts %}
-                                        {% if product.featured != 0 %}
-                                            <div class="home_gallery_item">
-                                                <a class="home_gallery_item_link" href="{{'painting'|page({id: product.id})}}">
-                                                    <div class="img_box_scale">
-                                                        <img data-lazy="{{ product.attachments[0].path|resize(250, 250, { mode: 'crop', quality: '80', extension: 'webp' }) }}" alt="" class="home_gallery_item_img">
-                                                    </div>
-                                                    <h3 class="home_gallery_item_title mt-2">
-                                                        {{product.title}}
-                                                    </h3>
-                                                </a>
-                                            </div>
-                                        {% endif %}
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
+      <div class="col-12 arrows_box">
+        {# If we need navigation buttons #}
+        <div class="arrows swiper-button-prev"></div>
+        <div class="arrows swiper-button-next"></div>
+      </div>
     </div>
 </div>
 
 {% put scripts %}
 <script>
-    $('.home_gallery').slick({
-        lazyLoad: 'ondemand',
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: true,
-        autoplay: true,
-        autoplaySpeed: 4000,
-        duration: 8000,
-        pauseOnHover: false,
-        dots: false,
-        responsive: [
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    infinite: true,
-                    dots: true
-                }
-            },
-        ]
+  window.onload = function() {
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      slidesPerView: 3,
+      spaceBetween: 0,
+      centeredSlides: true,
+      loop: true,
+      allowTouchMove: false,
+
+      breakpoints: {
+         // when window width is >= 320px
+         320: {
+           slidesPerView: 1,
+           spaceBetween: -20
+         },
+         // when window width is >= 320px
+         700: {
+           slidesPerView: 3,
+           spaceBetween: 0
+         },
+       },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     });
 
-    if (document.querySelector('.slick-prev')) {
-        document.querySelector('.slick-prev').innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
-        document.querySelector('.slick-next').innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
+    const arrowsSwiper = document.querySelector('.arrows_box');
+    const swiperReady = document.querySelector('.home_gallery');
+    if (swiperReady.classList.contains('swiper-initialized')) {
+      arrowsSwiper.classList.add('arrows_ready');
     }
+
+    const title = document.querySelectorAll('.banner_home-title');
+    title[0].children[0].classList.add('animation');
+    title[0].children[1].classList.add('animation');
+
+    const autorTitle = document.querySelector('.autor_name');
+    setTimeout(() => {
+      autorTitle.classList.add('show');
+    }, "3000")
+
+  };
 </script>
 {% endput %}

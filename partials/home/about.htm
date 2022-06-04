@@ -1,19 +1,21 @@
-<div class="container about mt-5">
-    <div class="row">
-        {% partial 'general/title' title = 'Edward Yov' %}
+<div class="containet-fluid background_color about">
+    <div class="container">
+        <div class="row">
+            {% partial 'general/title' title = 'Edward Yov' %}
 
-        <div class="col-md-4 about_image_box img_box_scale">
-            <img class="w-100" src=" {{'assets/img/about/artist.jpeg'|theme}}" alt="Artist Image">
-        </div>
-        <div class="col-md-8 mt-4 mt-md-0 about_text_box">
-            <p>
-                {{'Edward Yov is a Moldovan artist. He was born in 1975 in the city of Balti in the north of Moldova.'|_}}
-            </p>
-            <a class="g-btn" href="{{'about-artist'|page}}">
-                <span>
-                    More
-                </span>
-            </a>
+            <div class="col-md-6 img_box_scale">
+                <img class="w-100 pr-5" src=" {{'assets/img/about/artist.jpeg'|theme}}" alt="Artist Image">
+            </div>
+            <div class="col-md-6 d-flex align-items-start flex-column justify-content-center px-5">
+                <p>
+                    {{'Edward Yov is a Moldovan artist. He was born in 1975 in the city of Balti in the north of Moldova.'|_}}
+                </p>
+                <a class="g-btn" href="{{'about-artist'|page}}">
+                    <span>
+                        About Artist
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
 </div>
