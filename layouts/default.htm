@@ -31,7 +31,13 @@ forceUrl = 0
       <meta name="author" content="OctoberCMS" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="generator" content="OctoberCMS" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+            integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css">
+
       <style>{{ [ 'assets/css/bootstrap.min.css', 'assets/css/slick.css', 'assets/css/style.css' ]|inline }}</style>
 
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,8 +83,14 @@ forceUrl = 0
       <script src="{{'assets/js/jquery-3.5.1.min.js'|theme|minifyjs}}"></script>
       <script src="{{'assets/js/bootstrap.bundle.min.js'|theme|minifyjs}}"></script>
       <script type="text/javascript" src="{{'assets/js/slick.min.js'|theme|minifyjs}}"></script>
-      <script src="{{'assets/js/jquery.lazy.min.js'|theme|minifyjs}}"></script>
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.js" defer></script>
+
+      <!-- <script src="{{'assets/js/jquery.lazy.min.js'|theme|minifyjs}}"></script> -->
+      <script type="module">
+        import LazyLoad from "{{'assets/js/lazy-load.js'|theme}}";
+        LazyLoad.init();
+      </script>
+      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
       {% framework extras %}
       {% scripts %}
    </body>

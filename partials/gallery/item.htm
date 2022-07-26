@@ -1,31 +1,42 @@
 <div class="col-md-6 col-lg-4 mb-4">
     <div class="card_item text-center">
         {% if product.new_work != 0 %}
-        <a href="{{'painting'|page({id: product.id})}}">
-        {% else %}
-        <article class="slideshow_btn">
-        {% endif %}
-            <div class="card_item_img_box img_box_scale">
-                {% if product.new_work != 0 and this.page.BaseFileName == 'gallery' %}
+        <div>
+            {% else %}
+            <article class="slideshow_btn">
+                {% endif %}
+                <a href="{{ product.attachments[0].path|resize(350, 400, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                   class="progressive replace card_item_img_box img_box_scale"
+                >
+                    {% if product.new_work != 0 and this.page.BaseFileName == 'gallery' %}
                     <span>
                         New Art
-                    </span>
-                {% endif %}
-                <img class="card_item_img lazy" data-src="{{ product.attachments[0].path|resize(350, 400, { mode: 'crop', quality: '90', extension: 'webp' }) }}">
-            </div>
-            <div class="card_item_text_content">
-                <h3 class="card_item_title mt-4 mb-0">
-                    {{ product.title }}
-                </h3>
+                      </span>
+                    {% endif %}
+                    <img class="preview card_item_img"
+                         alt="{{ product.title }}"
+                         src="{{ product.attachments[0].path|resize(350, 400, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                    >
+                </a>
+                <div class="card_item_text_content">
+                    {% if product.new_work != 0 %}
+                    <a href="{{'painting'|page({id: product.id})}}">
+                        {% endif %}
+                        <h3 class="card_item_title mb-0">
+                            {{ product.title }}
+                        </h3>
+                        {% if product.new_work != 0 %}
+                    </a>
+                    {% endif %}
 
-                {% if false %}
+                    {% if false %}
                     <span class="card_item_desc">
-                        {{ product.description|raw }}
-                    </span>
-                {% endif %}
-            </div>
-        {% if product.new_work != 0 %}
-        </a>
+            {{ product.description|raw }}
+          </span>
+                    {% endif %}
+                </div>
+                {% if product.new_work != 0 %}
+        </div>
         {% else %}
         </article>
         {% endif %}
@@ -33,6 +44,6 @@
 </div>
 
 {% if product.new_work == 0 %}
-    <!-- Slideshow popup -->
-    {% partial 'gallery/popup_slideshow' %}
+<!-- Slideshow popup -->
+{% partial 'gallery/popup_slideshow' %}
 {% endif %}

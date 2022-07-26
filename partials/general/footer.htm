@@ -1,36 +1,39 @@
 <div class="container">
     <div class="row">
-      <div class="col-12 text-center">
-        <a class="navbar-brand mr-0" href="{{'home'|page}}">
-          <div class="logo_box footer">
-            <div class="logo_box_name">
-                <span>G</span><span>A</span>
-            </div>
-            <div class="logo_box--autor_name">
-              Edward Yov
-            </div>
-          </div>
-        </a>
-      </div>
+        <div class="col-12 text-center">
+            <a class="navbar-brand mr-0" href="{{'home'|page}}">
+                <div class="logo_box footer">
+                    <div class="logo_box_name">
+                        <span>G</span><span>A</span>
+                    </div>
+                    <div class="logo_box--autor_name">
+                        Edward Yov
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
     <div class="row mt-5">
-        <div class="col-md-4 col-sm-6 d-flex align-items-center">
-          <span class="d-block">
-              <i class="fa fa-envelope fa-fw fa-lg" aria-hidden="true"></i>
-              <a class="nav-link d-inline" href="mailto:GemiosArt@gmail.com">
+        <div class="col-sm-6 col-lg-4 text-center text-md-left">
+          <span class="d-block pt-md-2">
+              <a class="nav-link d-inline p-0" href="mailto:GemiosArt@gmail.com">
+                  <!--<i class="fa fa-envelope fa-fw fa-lg" aria-hidden="true"></i>-->
                   GemeosArt@gmail.com
               </a>
           </span>
         </div>
-        <div class="col-md-4 col-sm-6 mt-3 mt-sm-0">
+        <div class="col-sm-6 col-lg-4 my-3 mb-md-0 mt-sm-0">
             <ul>
                 <li class="nav-item dropdown {{this.page.BaseFileName == 'gallery' ? 'active-item'}} {{this.page.BaseFileName == 'gallery-new-art' ? 'active-item'}}">
-                    <a class="nav-link dropdown-toggle" href="#" id="galleryDrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="galleryDrop" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
                         {{'Gallery'|_}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="galleryDrop">
-                        <a class="dropdown-item {{this.page.BaseFileName == 'gallery-new-art' ? 'dropdown-item--active'}}" href="{{'gallery-new-art'|page}}">New Art works</a>
-                        <a class="dropdown-item {{this.page.BaseFileName == 'gallery' ? 'dropdown-item--active'}}" href="{{'gallery'|page}}">All works</a>
+                        <a class="dropdown-item {{this.page.BaseFileName == 'gallery-new-art' ? 'dropdown-item--active'}}"
+                           href="{{'gallery-new-art'|page}}">New Art works</a>
+                        <a class="dropdown-item {{this.page.BaseFileName == 'gallery' ? 'dropdown-item--active'}}"
+                           href="{{'gallery'|page}}">All works</a>
                     </div>
                 </li>
                 <li class="nav-item {{this.page.BaseFileName == 'about-artist' ? 'active-item'}}">
@@ -46,7 +49,7 @@
                 </li>
             </ul>
         </div>
-        <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-end">
+        <div class="col-md-12 col-sm-12 col-lg-4 d-flex align-items-center justify-content-end">
             <div class="social_box">
                 <a href="https://www.facebook.com/edward.yov">
                     <i class="fa fa-facebook fa-fw fa-lg" aria-hidden="true"></i>

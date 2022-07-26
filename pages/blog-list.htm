@@ -2,10 +2,6 @@ title = "Blog"
 url = "/blog-list"
 layout = "default"
 is_hidden = 0
-enabled_in_sitemap = 1
-use_updated_at = 0
-changefreq = "always"
-priority = 0.1
 
 [slideshows]
 sstheme = "artsite"
@@ -24,31 +20,42 @@ slug = "{{ :slug }}"
 displayEmpty = 0
 categoryPage = "blog/category"
 ==
-{% if false %}
-<!-- Banner -->
-{% partial 'general/banner' %}
-{% endif %}
-<!-- Title -->
-{% partial 'general/title' title = 'Blog' %}
 
-<div class="container">
+<div class="container-fluid background_color blog border-bottom p-0">
     <div class="row">
-        {% for post in posts %}
-            <div class="col-md-12 mt-5">
-                <a href="{{'blog-page'|page({slug: post.slug})}}">
+        <div class="container">
+            <div class="row">
+                <!-- Title -->
+                {% partial 'general/title' title = 'Blog' %}
+            </div>
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-md-12 mt-5">
                     <div class="row">
-                        <div class="col-md-4">
-                            <img src="{{post.featured_images[0].path}}" alt="{{post.title}}">
+                        <div class="col-md-6">
+                            <a href="{{ post.featured_images[0].path|resize(auto, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                               class="progressive replace"
+                            >
+                                <img class="preview" alt="{{ post.title }}"
+                                     src="{{ post.featured_images[0].path|resize(auto, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                                >
+                            </a>
                         </div>
-                        <div class="col-md-8">
-                            <h3>
-                                {{post.title}}
-                            </h3>
-                            <p class="excerpt">{{ post.summary|raw }}</p>
+                        <div class="col-md-6">
+                            <a href="{{'blog-page'|page({slug: post.slug})}}">
+                                <h3>
+                                    {{post.title}}
+                                </h3>
+                                <p class="excerpt">{{ post.summary|raw }}</p>
+                            </a>
+                            <span>{{ post.published_at|date('M d, Y') }}</span>
                         </div>
                     </div>
-                </a>
+                </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div>
     </div>
 </div>
+
+

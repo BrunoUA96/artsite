@@ -20,7 +20,6 @@ sstheme = "artsite"
     <div class="container">
         <div class="row">
             {% partial 'general/title' title = 'Gallery' %}
-
         </div>
         <div class="row">
             {% for product in catalog.getProducts %}
@@ -31,30 +30,3 @@ sstheme = "artsite"
         </div>
     </div>
 </div>
-
-{% if false %}
-{% put scripts %}
-    <script>
-        $('.gallery_slideshow_box_content').slick({
-            dots: false,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            speed: 500,
-            fade: true,
-            cssEase: 'linear'
-        });
-
-        if (document.querySelector('.slick-prev')) {
-            document.querySelectorAll('.gallery_slideshow_box_content').forEach((el, indx) => {
-                if (el.querySelector('.slick-prev')) {
-                   el.querySelector('.slick-prev').innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
-                   el.querySelector('.slick-next').innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
-                }
-            });
-        }
-    </script>
-{% endput %}
-{% endif %}
-
-{% partial 'gallery/js_lazy' %}

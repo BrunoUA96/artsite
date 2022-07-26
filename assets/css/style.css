@@ -380,20 +380,23 @@ footer .nav-link {
 .card_item {
   position: relative;
   cursor: pointer;
-}
-.card_item::before {
-  content: "";
-  position: absolute;
-  left: 0;
+  background: white;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   top: 0;
-  height: 100%;
-  width: 1px;
-  z-index: -1;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in;
+}
+.card_item:hover {
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+.card_item:hover .card_item_img {
+  transform: scale(1.03);
 }
 .card_item_img_box {
   height: 400px;
   position: relative;
+  overflow: hidden;
 }
 .card_item_img_box span {
   position: absolute;
@@ -408,15 +411,17 @@ footer .nav-link {
   width: 350px;
   height: 400px;
   object-fit: cover;
-  background-image: url("../../assets/img/preloader/Squared.gif");
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  transition: all 0.1s ease-in;
 }
 .card_item_text_content {
   padding: 0 10px 15px;
 }
 .card_item_title {
   color: #1A323B;
+  margin-top: 15px;
+  transition: all 0.1s ease-in;
 }
 @media screen and (max-width: 992px) {
   .card_item_title {
@@ -676,6 +681,11 @@ footer .nav-link {
   color: #FFB63B;
 }
 
+@media screen and (min-width: 768px) {
+  .about .banner_about_page {
+    height: calc(100vh - 126px);
+  }
+}
 .about.background_color::after {
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
 }
@@ -711,11 +721,6 @@ footer .nav-link {
   display: -ms-flex;
   display: flex;
   flex-direction: column;
-}
-@media screen and (min-width: 992px) {
-  .banner_home {
-    height: calc(100vh - 77.5px);
-  }
 }
 .banner_home-title {
   font-family: "EB Garamond", serif;
@@ -913,6 +918,10 @@ footer .nav-link {
 }
 .arrows_box .arrows.swiper-button-next {
   right: 0;
+}
+
+.blog.background_color::after {
+  clip-path: polygon(0% 0%, 50% 0, 50% 100%, 0% 100%);
 }
 
 .slideshow-blog-item {

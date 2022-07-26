@@ -2,7 +2,7 @@ title = "Blog"
 url = "/blog/:slug"
 layout = "default"
 is_hidden = 0
-enabled_in_sitemap = 1
+enabled_in_sitemap = 0
 use_updated_at = 0
 changefreq = "always"
 priority = 0.1
@@ -32,12 +32,14 @@ categoryPage = "blog/category"
             <div class="slideshow-blog">
                 {% for image in post.featured_images %}
                 <div class="slideshow-blog-item">
-                    <img
-                        data-src="{{ image.filename }}"
-                        src="{{ image.path }}"
-                        alt="{{ post.title }}"
-                        style="max-height: 70vh; width: auto;"
-                    />
+                    <a href="{{ image.path|resize(auto, 600, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                       class="progressive replace"
+                    >
+                        <img class="preview"
+                             alt="{{ post.title }}"
+                             src="{{ image.path|resize(auto, 600, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                        >
+                    </a>
                 </div>
                 {% endfor %}
             </div>
@@ -45,7 +47,7 @@ categoryPage = "blog/category"
     </div>
     <div class="row">
         <div class="col-12">
-            <p class="excerpt">{{ post.summary|raw }}</p>
+            <div class="excerpt">{{ post.content_html|raw }}</div>
         </div>
     </div>
 </div>
@@ -53,17 +55,17 @@ categoryPage = "blog/category"
 {% put scripts %}
 <script>
     $('.slideshow-blog').slick({
-            dots: false,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            adaptiveHeight: true
+        dots: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        adaptiveHeight: true
+    });
+    if (document.querySelector('.slick-prev')) {
+        document.querySelectorAll('.slideshow-blog').forEach((el, indx) => {
+            document.querySelectorAll('.slick-prev')[indx].innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
+            document.querySelectorAll('.slick-next')[indx].innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
         });
-        if (document.querySelector('.slick-prev')) {
-            document.querySelectorAll('.slideshow-blog').forEach((el, indx) => {
-                document.querySelectorAll('.slick-prev')[indx].innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
-                document.querySelectorAll('.slick-next')[indx].innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
-            });
-        }
+    }
 </script>
 {% endput %}
