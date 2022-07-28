@@ -376,6 +376,9 @@ footer .nav-link {
   color: #fff !important;
   text-transform: none;
 }
+footer .social_box a:hover {
+  color: #FFB63B;
+}
 
 .card_item {
   position: relative;
@@ -843,7 +846,13 @@ footer .nav-link {
   width: 100%;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1200px) {
+  .row_swiper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media screen and (min-width: 1600px) {
   .row_swiper {
     padding-left: 100px;
     padding-right: 100px;

@@ -14,4 +14,12 @@ footer {
     color: $white !important;
     text-transform: none;
   }
+
+  .social_box {
+    a {
+      &:hover {
+        color: $gold;
+      }
+    }
+  }
 }

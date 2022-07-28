@@ -5,7 +5,7 @@
             {% else %}
             <article class="slideshow_btn">
                 {% endif %}
-                <a href="{{ product.attachments[0].path|resize(350, 400, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                <a href="{{ product.attachments[0].path|resize(350, 400, { mode: 'crop', quality: '30', extension: 'webp' }) }}"
                    class="progressive replace card_item_img_box img_box_scale"
                 >
                     {% if product.new_work != 0 and this.page.BaseFileName == 'gallery' %}
@@ -13,9 +13,9 @@
                         New Art
                       </span>
                     {% endif %}
-                    <img class="preview card_item_img"
+                    <img class="preview lazy card_item_img "
                          alt="{{ product.title }}"
-                         src="{{ product.attachments[0].path|resize(350, 400, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                         data-src="{{ product.attachments[0].path|resize(350, 400, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
                     >
                 </a>
                 <div class="card_item_text_content">
@@ -27,12 +27,6 @@
                         </h3>
                         {% if product.new_work != 0 %}
                     </a>
-                    {% endif %}
-
-                    {% if false %}
-                    <span class="card_item_desc">
-            {{ product.description|raw }}
-          </span>
                     {% endif %}
                 </div>
                 {% if product.new_work != 0 %}

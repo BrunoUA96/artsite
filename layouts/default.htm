@@ -7,91 +7,101 @@ forceUrl = 0
 ==
 <!DOCTYPE html>
 <html prefix="og: https://ogp.me/ns#">
-   <head>
-      <meta charset="utf-8" />
-      <meta property="og:title" content="{{ this.page.meta_title }}" />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="{{page|page }}" />
-      <meta property="og:image" content="{{'assets/img/about/artist1.jpeg'|theme|resize(400, 500, { mode: 'crop', quality: '90', extension: 'jpeg' })}}" />
-      <meta property="og:image:type" content="image/jpeg">
-      <meta property="og:image:width" content="400">
-      <meta property="og:image:height" content="500">
-      <meta property="og:description" content="{{ this.page.meta_description }}" />
-      <link rel="icon" type="image/png" href="{{ 'assets/img/ico/icon.ico'|theme }}">
+<head>
+    <meta charset="utf-8"/>
+    <meta property="og:title" content="{{ this.page.meta_title }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{page|page }}"/>
+    <meta property="og:image"
+          content="{{'assets/img/about/artist1.jpeg'|theme|resize(400, 500, { mode: 'crop', quality: '90', extension: 'jpeg' })}}"/>
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="500">
+    <meta property="og:description" content="{{ this.page.meta_description }}"/>
+    <link rel="icon" type="image/png" href="{{ 'assets/img/ico/icon.ico'|theme }}">
 
-      {% if this.page.BaseFileName == 'home' %}
-         <title>{{this.page.meta_title }}</title>
-      {% else %}
-         <title>{{ this.page.title }}</title>
-      {% endif %}
+    {% if this.page.BaseFileName == 'home' %}
+    <title>{{this.page.meta_title }}</title>
+    {% else %}
+    <title>{{ this.page.title }}</title>
+    {% endif %}
 
-      <meta name="title" content="{{ this.page.meta_title }}" />
-      <meta name="description" content="{{ this.page.meta_description }}" />
+    <meta name="title" content="{{ this.page.meta_title }}"/>
+    <meta name="description" content="{{ this.page.meta_description }}"/>
 
-      <meta name="author" content="OctoberCMS" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="generator" content="OctoberCMS" />
-      <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-            integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css">
+    <meta name="author" content="OctoberCMS"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="OctoberCMS"/>
+    <!--<link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+          integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css">
 
-      <style>{{ [ 'assets/css/bootstrap.min.css', 'assets/css/slick.css', 'assets/css/style.css' ]|inline }}</style>
+    <style>{{['assets/css/bootstrap.min.css', 'assets/css/slick.css','assets/css/style.css']|inline}}</style>
 
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link
-         rel="preload"
-         href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Source+Sans+Pro:wght@300;400&display=swap"
-         as="style"
-         onload="this.onload=null;this.rel='stylesheet'"
-      >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preload"
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Source+Sans+Pro:wght@300;400&display=swap"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'"
+    >
 
-      <link
+    <link
         rel="stylesheet"
         href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-      />
+    />
 
 
-      {% styles %}
+    {% styles %}
 
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-199868485-1">
-      </script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-199868485-1">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-         gtag('config', 'UA-199868485-1');
-      </script>
-   </head>
-   <body>
-      <!-- Header -->
-      {% partial 'general/navbar' %}
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-      <!-- Content -->
-      <section>{% page %}</section>
+        gtag('js', new Date());
 
-      <!-- Footer -->
-      <!-- class="{{this.page.BaseFileName == 'home' ? 'mt-0' : 'mt-5'}}" -->
-      <footer class="footer">{% partial 'general/footer' %}</footer>
+        gtag('config', 'UA-199868485-1');
+    </script>
+</head>
+<body>
+<!-- Header -->
+{% partial 'general/navbar' %}
 
-      <!-- Scripts -->
-      <script src="{{'assets/js/jquery-3.5.1.min.js'|theme|minifyjs}}"></script>
-      <script src="{{'assets/js/bootstrap.bundle.min.js'|theme|minifyjs}}"></script>
-      <script type="text/javascript" src="{{'assets/js/slick.min.js'|theme|minifyjs}}"></script>
-      <script src="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.js" defer></script>
+<!-- Content -->
+<section>{% page %}</section>
 
-      <!-- <script src="{{'assets/js/jquery.lazy.min.js'|theme|minifyjs}}"></script> -->
-      <script type="module">
-        import LazyLoad from "{{'assets/js/lazy-load.js'|theme}}";
-        LazyLoad.init();
-      </script>
-      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-      {% framework extras %}
-      {% scripts %}
-   </body>
+<!-- Footer -->
+<!-- class="{{this.page.BaseFileName == 'home' ? 'mt-0' : 'mt-5'}}" -->
+<footer class="footer">{% partial 'general/footer' %}</footer>
+
+<!-- Scripts -->
+<script src="{{'assets/js/jquery-3.5.1.min.js'|theme|minifyjs}}"></script>
+<script src="{{'assets/js/bootstrap.bundle.min.js'|theme|minifyjs}}"></script>
+<script type="text/javascript" src="{{'assets/js/slick.min.js'|theme|minifyjs}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.js" defer></script>
+
+<script src="{{'assets/js/jquery.lazy.min.js'|theme|minifyjs}}"></script>
+<script type="module">
+    import LazyLoad from "{{'assets/js/lazy-load.js'|theme}}";
+
+    setTimeout(LazyLoad.init(), 5000);
+</script>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+{% framework extras %}
+{% scripts %}
+</body>
 </html>

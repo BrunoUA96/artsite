@@ -13,9 +13,7 @@ sstheme = "artsite"
 
 [catalog]
 ==
-{% if false %}
-{% partial 'general/banner' %}
-{% endif %}
+
 <div class="container-fluid background_color gallery">
     <div class="container">
         <div class="row">
@@ -30,3 +28,13 @@ sstheme = "artsite"
         </div>
     </div>
 </div>
+
+{% put scripts %}
+<script>
+    $(function () {
+        $('.lazy').Lazy({
+            delay: 5000
+        });
+    });
+</script>
+{% endput %}

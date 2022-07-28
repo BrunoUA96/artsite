@@ -21,7 +21,7 @@ displayEmpty = 0
 categoryPage = "blog/category"
 ==
 
-<div class="container-fluid background_color blog border-bottom p-0">
+<div class="container-fluid background_color blog border-bottom p-0 pb-5">
     <div class="row">
         <div class="container">
             <div class="row">
@@ -46,7 +46,7 @@ categoryPage = "blog/category"
                                 <h3>
                                     {{post.title}}
                                 </h3>
-                                <p class="excerpt">{{ post.summary|raw }}</p>
+                                <p class="excerpt">{{ post.content_html|raw }}</p>
                             </a>
                             <span>{{ post.published_at|date('M d, Y') }}</span>
                         </div>

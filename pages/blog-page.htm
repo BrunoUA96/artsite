@@ -47,7 +47,7 @@ categoryPage = "blog/category"
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="excerpt">{{ post.content_html|raw }}</div>
+            <p class="excerpt">{{ post.summary|raw }}</p>
         </div>
     </div>
 </div>
@@ -63,8 +63,8 @@ categoryPage = "blog/category"
     });
     if (document.querySelector('.slick-prev')) {
         document.querySelectorAll('.slideshow-blog').forEach((el, indx) => {
-            document.querySelectorAll('.slick-prev')[indx].innerHTML = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
-            document.querySelectorAll('.slick-next')[indx].innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
+            document.querySelectorAll('.slick-prev')[indx].innerHTML = '<i class="fab fa-angle-left" aria-hidden="true"></i>';
+            document.querySelectorAll('.slick-next')[indx].innerHTML = '<i class="fab fa-angle-right" aria-hidden="true"></i>';
         });
     }
 </script>
