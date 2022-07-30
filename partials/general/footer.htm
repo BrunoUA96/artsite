@@ -23,23 +23,15 @@
         </div>
         <div class="col-md-6 col-lg-4 my-3 mb-md-0">
             <ul>
-                <li class="nav-item dropdown {{this.page.BaseFileName == 'gallery' ? 'active-item'}} {{this.page.BaseFileName == 'gallery-new-art' ? 'active-item'}}">
-                    <a class="nav-link dropdown-toggle" href="#" id="galleryDrop" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item {{this.page.BaseFileName == 'gallery' ? 'active-item'}}">
+                    <a class="nav-link" href="{{'gallery'|page}}">
                         {{'Gallery'|_}}
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="galleryDrop">
-                        <a class="dropdown-item {{this.page.BaseFileName == 'gallery-new-art' ? 'dropdown-item--active'}}"
-                           href="{{'gallery-new-art'|page}}">New Art works</a>
-                        <a class="dropdown-item {{this.page.BaseFileName == 'gallery' ? 'dropdown-item--active'}}"
-                           href="{{'gallery'|page}}">All works</a>
-                    </div>
                 </li>
                 <li class="nav-item {{this.page.BaseFileName == 'about-artist' ? 'active-item'}}">
                     <a class="nav-link" href="{{'about-artist'|page}}">
                         {{'About'|_}}
                     </a>
-                </li>
                 </li>
                 <li class="nav-item {{this.page.BaseFileName == 'blog-list' ? 'active-item'}}">
                     <a class="nav-link" href="{{'blog-list'|page}}">

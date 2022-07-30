@@ -1,5 +1,5 @@
 title = "Gallery"
-url = "/gallery"
+url = "/gallery/:page?"
 layout = "default"
 is_hidden = 0
 enabled_in_sitemap = 1
@@ -11,23 +11,34 @@ priority = 0.1
 [slideshows]
 sstheme = "artsite"
 
-[catalog]
+[builderList]
+modelClass = "Artsite\Catalog\Models\Product"
+scope = "scopeTransOrderBy"
+scopeValue = "updated_at"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+recordsPerPage = 21
+pageNumber = "{{ :page }}"
 ==
-
 <div class="container-fluid background_color gallery">
     <div class="container">
         <div class="row">
             {% partial 'general/title' title = 'Gallery' %}
         </div>
         <div class="row">
-            {% for product in catalog.getProducts %}
-                {% if product.new_work != 1 %}
-                    {% partial 'gallery/item' product = product %}
-                {% endif %}
-            {% endfor %}
+            {% component 'builderList' %}
         </div>
     </div>
 </div>
+{% if false %}
+    {% for product in catalog.getProducts %}
+        {% if product.new_work != 1 %}
+            {% partial 'gallery/item' product = product %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
 
 {% put scripts %}
 <script>

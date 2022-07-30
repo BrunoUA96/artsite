@@ -1,0 +1,40 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+
+  .page-item {
+    margin: 0 4px 10px 4px;
+
+    &:hover {
+      .page-link {
+        color: $white;
+        background-color: $gold;
+
+        i {
+          color: $white;
+        }
+      }
+    }
+
+    &.active {
+      .page-link {
+        font-weight: 600;
+        background-color: $gold;
+        color: $white;
+      }
+    }
+
+    .page-link {
+      border: 0;
+      color: $blue;
+      font-size: 18px;
+      padding: 10px 18px;
+      outline: none;
+      box-shadow: none;
+
+      i {
+        color: $gold;
+      }
+    }
+  }
+}
