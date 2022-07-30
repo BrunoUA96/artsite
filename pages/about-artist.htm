@@ -13,8 +13,14 @@ priority = 0.1
         <div class="container">
             <div class="row mb-md-5 banner_about_page">
                 {% partial 'general/title' title = 'Edward Yov' %}
-                <div class="col-md-12 text-center">
-                    <img class="img_artist" src="{{'assets/img/about/artist.jpeg'|theme}}" alt="">
+                <div class="col-md-12 text-center d-flex justify-content-center align-items-center">
+                    <a href="{{'assets/img/about/artist.jpeg'|theme|resize(auto, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                       class="progressive replace"
+                    >
+                        <img class="preview img_artist" alt="{{ post.title }}"
+                             src="{{ 'assets/img/about/artist.jpeg'|theme|resize(auto, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                        >
+                    </a>
                 </div>
             </div>
         </div>
@@ -35,14 +41,26 @@ priority = 0.1
             </p>
         </div>
         <div class="col-md-6">
-            <img class="w-100" src="{{'assets/img/about/about2.jpeg'|theme}}" alt="">
+            <a href="{{'assets/img/about/about2.jpeg'|theme|resize(auto, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+               class="progressive replace"
+            >
+                <img class="preview img_artist" alt="{{ post.title }}"
+                     src="{{'assets/img/about/about2.jpeg'|theme|resize(auto, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                >
+            </a>
         </div>
     </div>
     <div class="row mb-md-5">
-        <div class="col-md-6">
-            <img src="{{'assets/img/about/about1.jpeg'|theme}}" alt="">
+        <div class="col-md-6 order-2 order-md-1">
+            <a href="{{'assets/img/about/about1.jpeg'|theme|resize(auto, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+               class="progressive replace"
+            >
+                <img class="preview img_artist" alt="{{ post.title }}"
+                     src="{{'assets/img/about/about1.jpeg'|theme|resize(auto, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                >
+            </a>
         </div>
-        <div class="col-md-6 d-flex align-items-center justify-content-center flex-column">
+        <div class="col-md-6 order-1 order-md-2 d-flex align-items-center justify-content-center flex-column">
             <p class="my-5">
                 {{'Due to various traumas, he abandoned sport and gave all his time to art.'|_}}
             </p>
@@ -60,8 +78,14 @@ priority = 0.1
                 canvas.
             </p>
         </div>
-        <div class="col-md-6">
-            <img src="{{'assets/img/about/about3.jpeg'|theme}}" alt="">
+        <div class="col-md-6 mb-4 mb-md-0">
+            <a href="{{'assets/img/about/about3.jpeg'|theme|resize(auto, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+               class="progressive replace"
+            >
+                <img class="preview img_artist" alt="{{ post.title }}"
+                     src="{{'assets/img/about/about3.jpeg'|theme|resize(auto, auto, { mode: 'crop', quality: '80', extension: 'webp' }) }}"
+                >
+            </a>
         </div>
     </div>
 </div>
