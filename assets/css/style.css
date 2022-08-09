@@ -795,11 +795,11 @@ footer .social_box a:hover {
   transform: translateX(-100%);
 }
 .banner_home-title span:first-child.animation {
-  left: 50%;
+  left: 52%;
 }
 @media screen and (max-width: 992px) {
   .banner_home-title span:first-child.animation {
-    left: 59%;
+    left: 57%;
   }
 }
 .banner_home-title span:last-child {
@@ -809,11 +809,11 @@ footer .social_box a:hover {
   right: -10%;
 }
 .banner_home-title span:last-child.animation {
-  right: 50%;
+  right: 44%;
 }
 @media screen and (max-width: 992px) {
   .banner_home-title span:last-child.animation {
-    right: 39%;
+    right: 37%;
   }
 }
 .banner_home-title span:last-child .autor_name {
