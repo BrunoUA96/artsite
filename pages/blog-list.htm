@@ -1,24 +1,21 @@
 title = "Blog"
-url = "/blog-list"
+url = "/blog-list/:page?"
 layout = "default"
 is_hidden = 0
+enabled_in_sitemap = 0
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
 
 [slideshows]
 sstheme = "artsite"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
-categoryFilter = ":slug"
 postsPerPage = 10
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
-categoryPage = "blog/category"
 postPage = "blog/post"
-
-[blogCategories]
-slug = "{{ :slug }}"
-displayEmpty = 0
-categoryPage = "blog/category"
 ==
 
 <div class="container-fluid background_color blog border-bottom p-0 pb-5">
@@ -54,8 +51,51 @@ categoryPage = "blog/category"
                 </div>
                 {% endfor %}
             </div>
+
+            <!-- Pagination -->
+            <div class="row">
+                {% if posts.lastPage > 1 %}
+                    <nav class="col-12 d-flex justify-content-center my-5">
+                        <ul class="pagination">
+                            {% if posts.currentPage > 1 %}
+                            <li class="page-item">
+                                <a class="page-link"
+                                href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}"
+                                aria-label="Previous">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                    
+                            {% for page in 1..posts.lastPage %}
+                                {% if posts.currentPage == page %}
+                                    <li class="page-item active">
+                                        <span class="page-link">
+                                            {{ page }}
+                                        </span>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">
+                                            {{ page }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                    
+                            {% if posts.lastPage > posts.currentPage %}
+                            <li class="page-item">
+                                <a class="page-link"
+                                href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}"
+                                aria-label="Next">
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>
-
-

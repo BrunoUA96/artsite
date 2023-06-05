@@ -9,7 +9,7 @@
             "name": "Oleg Babinetchi",
             "email": "oleg.luks@sapo.pt",
             "role": "Founder"
-        },
+        }
     ],
     "require": {
         "php": ">=5.4",
