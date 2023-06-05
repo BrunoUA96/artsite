@@ -842,6 +842,7 @@ footer .social_box a:hover {
 .home_gallery.swiper-initialized {
   opacity: 1;
   overflow: inherit;
+  overflow-x: clip;
 }
 .home_gallery .swiper-slide-active {
   z-index: 9;
